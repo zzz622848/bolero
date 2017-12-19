@@ -1,43 +1,41 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>numpydoc – Numpy’s Sphinx extensions &mdash; bolero 0.0.1 documentation</title>
-    
+    <title>numpydoc – Numpy’s Sphinx extensions &#8212; bolero 0.1.0 documentation</title>
     <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/bootswatch-3.1.0/flatly/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '0.0.1',
+        VERSION:     '0.1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
     <script type="text/javascript" src="../../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
-    <link rel="top" title="bolero 0.0.1 documentation" href="../../index.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -50,7 +48,7 @@
         </button>
         <a class="navbar-brand" href="../../index.html">
           bolero</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.0.1</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.1.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -70,6 +68,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart-controller.html">Quick Start with the Controller</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quick Start with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../behavior_learning.html">Behavior Learning</a></li>
@@ -95,7 +94,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../api_py.html">Python API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../api_cpp.html">C++ API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../mars_environment.html">MARS Environment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
 </ul>
 </ul>
 </li>
@@ -109,7 +107,7 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">numpydoc &#8211; Numpy&#8217;s Sphinx extensions</a><ul>
+<li><a class="reference internal" href="#">numpydoc – Numpy’s Sphinx extensions</a><ul>
 <li><a class="reference internal" href="#numpydoc">numpydoc</a><ul>
 <li><a class="reference internal" href="#options">Options</a></li>
 </ul>
@@ -149,8 +147,8 @@
       
   <a class="reference external image-reference" href="https://travis-ci.org/numpy/numpydoc/"><img alt="https://travis-ci.org/numpy/numpydoc.png?branch=master" src="https://travis-ci.org/numpy/numpydoc.png?branch=master" /></a>
 <div class="section" id="numpydoc-numpy-s-sphinx-extensions">
-<h1>numpydoc &#8211; Numpy&#8217;s Sphinx extensions<a class="headerlink" href="#numpydoc-numpy-s-sphinx-extensions" title="Permalink to this headline">¶</a></h1>
-<p>Numpy&#8217;s documentation uses several custom extensions to Sphinx.  These
+<h1>numpydoc – Numpy’s Sphinx extensions<a class="headerlink" href="#numpydoc-numpy-s-sphinx-extensions" title="Permalink to this headline">¶</a></h1>
+<p>Numpy’s documentation uses several custom extensions to Sphinx.  These
 are shipped in this <code class="docutils literal"><span class="pre">numpydoc</span></code> package, in case you want to make use
 of them in third-party projects.</p>
 <p>The following extensions are available:</p>
@@ -160,7 +158,7 @@ of them in third-party projects.</p>
 the code description directives <code class="docutils literal"><span class="pre">np:function</span></code>, <code class="docutils literal"><span class="pre">np-c:function</span></code>, etc.
 that support the Numpy docstring syntax.</li>
 <li><code class="docutils literal"><span class="pre">numpydoc.traitsdoc</span></code>: For gathering documentation about Traits attributes.</li>
-<li><code class="docutils literal"><span class="pre">numpydoc.plot_directive</span></code>: Adaptation of Matplotlib&#8217;s <code class="docutils literal"><span class="pre">plot::</span></code>
+<li><code class="docutils literal"><span class="pre">numpydoc.plot_directive</span></code>: Adaptation of Matplotlib’s <code class="docutils literal"><span class="pre">plot::</span></code>
 directive. Note that this implementation may still undergo severe
 changes or eventually be deprecated.</li>
 </ul>
@@ -169,7 +167,7 @@ changes or eventually be deprecated.</li>
 for how to write docs that use this extension.</p>
 <div class="section" id="numpydoc">
 <h2>numpydoc<a class="headerlink" href="#numpydoc" title="Permalink to this headline">¶</a></h2>
-<p>Numpydoc inserts a hook into Sphinx&#8217;s autodoc that converts docstrings
+<p>Numpydoc inserts a hook into Sphinx’s autodoc that converts docstrings
 following the Numpy/Scipy format to a form palatable to Sphinx.</p>
 <div class="section" id="options">
 <h3>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h3>
@@ -188,7 +186,7 @@ sections automatically.</p>
 methods and attributes. If a table of contents is made, Sphinx expects
 each entry to have a separate page.</p>
 </li>
-<li><p class="first">numpydoc_edit_link: bool  (DEPRECATED &#8211; edit your HTML template instead)</p>
+<li><p class="first">numpydoc_edit_link: bool  (DEPRECATED – edit your HTML template instead)</p>
 <p>Whether to insert an edit link after docstrings.</p>
 </li>
 </ul>
@@ -208,8 +206,8 @@ each entry to have a separate page.</p>
       
     </p>
     <p>
-        &copy; Copyright 2014, DFKI RIC, University of Bremen.<br/>
-      Last updated on May 21, 2017.<br/>
+        &copy; Copyright 2014-2017, DFKI GmbH / Robotics Innovation Center, University of Bremen / Robotics Group.<br/>
+      Last updated on Dec 19, 2017.<br/>
     </p>
   </div>
 </footer>
