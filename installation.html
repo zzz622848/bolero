@@ -110,6 +110,8 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Installation</a><ul>
+<li><a class="reference internal" href="#download-source">Download Source</a></li>
+<li><a class="reference internal" href="#installation-script">Installation Script</a></li>
 <li><a class="reference internal" href="#environment">Environment</a></li>
 <li><a class="reference internal" href="#optional-packages">Optional Packages</a></li>
 <li><a class="reference internal" href="#installing-only-the-python-library">Installing Only the Python Library</a></li>
@@ -150,14 +152,29 @@
       
   <div class="section" id="installation">
 <span id="id1"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<p>The installation process for BOLeRo is a little bit unusual because we depend
-on the latest versions of many libraries and support Linux, MaxOS and Windows
-so that we usually have to download and build them. You can download the
-installation script and run it with</p>
+<p>There are two alternatives to install BOLeRo.</p>
+<div class="section" id="download-source">
+<h2>Download Source<a class="headerlink" href="#download-source" title="Permalink to this headline">¶</a></h2>
+<p>BOLeRo is also available at [mloss.org](<a class="reference external" href="http://mloss.org/software/view/698/">http://mloss.org/software/view/698/</a>)
+or you can download the latest release from
+[Github](<a class="reference external" href="https://github.com/rock-learning/bolero/releases">https://github.com/rock-learning/bolero/releases</a>). After you unzipped
+the release, you can build BOLeRo with the script <cite>install.sh</cite> from the folder
+<cite>bolero-dev</cite>. Note that you have to run it from that folder, otherwise the
+environment variables will not be configured correctly. The installation
+script will also install dependencies.</p>
+</div>
+<div class="section" id="installation-script">
+<h2>Installation Script<a class="headerlink" href="#installation-script" title="Permalink to this headline">¶</a></h2>
+<p>This is the recommended way to install BOLeRo. The installation process for
+BOLeRo is a little bit unusual because we depend on the latest versions of
+many libraries and support Linux, MaxOS and Windows so that we usually have
+to download and build them. You can download the installation script and run
+it with</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>wget https://raw.githubusercontent.com/rock-learning/bolero/master/bootstrap_bolero.sh
 chmod +x bootstrap_bolero.sh
 ./bootstrap_bolero.sh
 </pre></div>
+</div>
 </div>
 <div class="section" id="environment">
 <h2>Environment<a class="headerlink" href="#environment" title="Permalink to this headline">¶</a></h2>

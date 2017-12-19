@@ -53,7 +53,7 @@ this domain.
     ax.set_ylim(-10, 210)
     plt.show()
 
-**Total running time of the script:** ( 0 minutes  2.083 seconds)
+**Total running time of the script:** ( 0 minutes  2.346 seconds)
 
 
 

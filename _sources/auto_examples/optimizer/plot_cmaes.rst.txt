@@ -123,7 +123,7 @@ values for the search space are color-coded.
         plt.subplots_adjust(left=0, bottom=0, right=1, top=1, wspace=0, hspace=0)
     plt.show()
 
-**Total running time of the script:** ( 0 minutes  36.425 seconds)
+**Total running time of the script:** ( 0 minutes  42.999 seconds)
 
 
 
