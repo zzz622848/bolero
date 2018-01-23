@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>bolero.optimizer.cmaes &#8212; bolero 0.1.0 documentation</title>
+    <title>bolero.optimizer.cmaes &#8212; bolero 0.2.0 documentation</title>
     <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
@@ -12,7 +12,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.1.0',
+        VERSION:     '0.2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -48,7 +48,7 @@
         </button>
         <a class="navbar-brand" href="../../../index.html">
           bolero</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.1.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.2.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -92,7 +92,8 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../api_py.html">Python API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../api_cpp.html">C++ API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api_cpp.html">C++ API (Summary)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/cpp_modules.html">All C++ Modules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../mars_environment.html">MARS Environment</a></li>
 </ul>
 </ul>
@@ -167,12 +168,22 @@
             <span class="n">samples</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">samples</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">bounds</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
 
 
+<span class="k">def</span> <span class="nf">inv_sqrt</span><span class="p">(</span><span class="n">cov</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Compute inverse square root of a covariance matrix.&quot;&quot;&quot;</span>
+    <span class="n">cov</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">triu</span><span class="p">(</span><span class="n">cov</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">triu</span><span class="p">(</span><span class="n">cov</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+    <span class="n">D</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">cov</span><span class="p">)</span>
+    <span class="c1"># HACK: avoid numerical problems</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span><span class="p">)</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">B</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">D</span><span class="p">))</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">B</span><span class="o">.</span><span class="n">T</span><span class="p">),</span> <span class="n">B</span><span class="p">,</span> <span class="n">D</span>
+
+
 <div class="viewcode-block" id="CMAESOptimizer"><a class="viewcode-back" href="../../../modules/generated/bolero.optimizer.CMAESOptimizer.html#bolero.optimizer.CMAESOptimizer">[docs]</a><span class="k">class</span> <span class="nc">CMAESOptimizer</span><span class="p">(</span><span class="n">Optimizer</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Covariance Matrix Adaptation Evolution Strategy.</span>
 
 <span class="sd">    See `Wikipedia &lt;http://en.wikipedia.org/wiki/CMA-ES&gt;`_ for details.</span>
 
-<span class="sd">    Plain CMA-ES is considered to be useful for</span>
+<span class="sd">    Plain CMA-ES [1]_ is considered to be useful for</span>
 
 <span class="sd">    * non-convex,</span>
 <span class="sd">    * non-separable,</span>
@@ -231,6 +242,12 @@
 
 <span class="sd">    random_state : int or RandomState, optional (default: None)</span>
 <span class="sd">        Seed for the random number generator or RandomState object.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    .. [1] Hansen, N.; Ostermeier, A. Completely Derandomized Self-Adaptation</span>
+<span class="sd">        in Evolution Strategies. In: Evolutionary Computation, 9(2), pp.</span>
+<span class="sd">        159-195. https://www.lri.fr/~hansen/cmaartic.pdf</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 <div class="viewcode-block" id="CMAESOptimizer.__init__"><a class="viewcode-back" href="../../../modules/generated/bolero.optimizer.CMAESOptimizer.html#bolero.optimizer.CMAESOptimizer.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span> <span class="n">initial_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">variance</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">covariance</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -348,7 +365,8 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">neg_cmu</span> <span class="o">=</span> <span class="p">((</span><span class="mf">1.0</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">cmu</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.25</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">mueff</span> <span class="o">/</span>
                             <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">n_params</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mf">1.5</span> <span class="o">+</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">mueff</span><span class="p">))</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_update_covariance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">it</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">invsqrtC</span> <span class="o">=</span> <span class="n">inv_sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cov</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">eigen_decomp_updated</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">it</span>
 
     <span class="k">def</span> <span class="nf">_sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">):</span>
         <span class="n">samples</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">random_state</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span>
@@ -462,18 +480,10 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">var</span> <span class="o">*=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">((</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">log_step_size_update</span><span class="p">)))</span> <span class="o">**</span> <span class="mi">2</span>
 
         <span class="k">if</span> <span class="n">it</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">eigen_decomp_updated</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">eigen_update_freq</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_update_covariance</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">invsqrtC</span> <span class="o">=</span> <span class="n">inv_sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cov</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">eigen_decomp_updated</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">it</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">samples</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sample</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_samples_per_update</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">_update_covariance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">it</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">eigen_decomp_updated</span> <span class="o">=</span> <span class="n">it</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">cov</span><span class="p">[:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">triu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cov</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">triu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cov</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
-        <span class="n">D</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cov</span><span class="p">)</span>
-        <span class="c1"># HACK: avoid numerical problems</span>
-        <span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span><span class="p">)</span>
-        <span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">D</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">invsqrtC</span> <span class="o">=</span> <span class="n">B</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">D</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">B</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 
 <div class="viewcode-block" id="CMAESOptimizer.is_behavior_learning_done"><a class="viewcode-back" href="../../../modules/generated/bolero.optimizer.CMAESOptimizer.html#bolero.optimizer.CMAESOptimizer.is_behavior_learning_done">[docs]</a>    <span class="k">def</span> <span class="nf">is_behavior_learning_done</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Check if the optimization is finished.</span>
@@ -884,8 +894,8 @@
       
     </p>
     <p>
-        &copy; Copyright 2014-2017, DFKI GmbH / Robotics Innovation Center, University of Bremen / Robotics Group.<br/>
-      Last updated on Dec 19, 2017.<br/>
+        &copy; Copyright 2014-2018, DFKI GmbH / Robotics Innovation Center, University of Bremen / Robotics Group.<br/>
+      Last updated on Jan 23, 2018.<br/>
     </p>
   </div>
 </footer>

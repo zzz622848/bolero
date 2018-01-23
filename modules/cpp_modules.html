@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>BOLeRo C++ Modules &#8212; bolero 0.1.0 documentation</title>
+    <title>All C++ Modules &#8212; bolero 0.2.0 documentation</title>
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
@@ -12,7 +12,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.1.0',
+        VERSION:     '0.2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -29,6 +29,8 @@
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="MARS Environment" href="../mars_environment.html" />
+    <link rel="prev" title="C++ API (Summary)" href="../api_cpp.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -48,7 +50,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           bolero</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.1.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.2.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -90,9 +92,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html#representation-examples">Representation examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/index.html">Notebooks</a></li>
 </ul>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../api_py.html">Python API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_cpp.html">C++ API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_cpp.html">C++ API (Summary)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">All C++ Modules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mars_environment.html">MARS Environment</a></li>
 </ul>
 </ul>
@@ -107,7 +110,7 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">BOLeRo C++ Modules</a></li>
+<li><a class="reference internal" href="#">All C++ Modules</a></li>
 </ul>
 </ul>
 </li>
@@ -139,8 +142,8 @@
   <div class="row">
     <div class="col-md-12">
       
-  <div class="section" id="bolero-c-modules">
-<span id="cpp-modules"></span><h1>BOLeRo C++ Modules<a class="headerlink" href="#bolero-c-modules" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="all-c-modules">
+<span id="cpp-modules"></span><h1>All C++ Modules<a class="headerlink" href="#all-c-modules" title="Permalink to this headline">¶</a></h1>
 <p>Navigate throught the module documentation with <a class="reference internal" href="../api_cpp.html#api-cpp"><span class="std std-ref">this summary</span></a>.</p>
 <dl class="class">
 <dt id="_CPPv2N6bolero8BehaviorE">
@@ -772,7 +775,7 @@
 <dd>how many rewards were assigned for the whole evaluation </dd>
 <dt><strong>Parameters</strong></dt>
 <dd><ul class="breatheparameterlist first last">
-<li><code class="first docutils literal"><span class="pre">feedbacks</span></code> - <p></p>
+<li><code class="first docutils literal"><span class="pre">feedback</span></code> - <p>array, will be filled with feedbacks </p>
 </li>
 </ul>
 </dd>
@@ -1135,6 +1138,8 @@
 <dd><ul class="breatheparameterlist first last">
 <li><code class="first docutils literal"><span class="pre">values</span></code> - <p>Concatenation of position, velocity and acceleration values </p>
 </li>
+<li><code class="first docutils literal"><span class="pre">numInputs</span></code> - <p>Number of inputs </p>
+</li>
 </ul>
 </dd>
 </dl>
@@ -1149,6 +1154,8 @@
 <dd><ul class="breatheparameterlist first last">
 <li><code class="first docutils literal"><span class="pre">values</span></code> - <p>Concatenation of position, velocity and acceleration values </p>
 </li>
+<li><code class="first docutils literal"><span class="pre">numOutputs</span></code> - <p>Number of outputs </p>
+</li>
 </ul>
 </dd>
 </dl>
@@ -1158,17 +1165,13 @@
 <dl class="function">
 <dt id="_CPPv2N3dmp11DmpBehavior4stepEv">
 <span id="dmp::DmpBehavior::step"></span>virtual <span class="target" id="boleroclassdmp_1_1DmpBehavior_1a28e81945cbde6b22a73a7790dd1eefda"></span>void <code class="descclassname">dmp::DmpBehavior::</code><code class="descname">step</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3dmp11DmpBehavior4stepEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Compute output for the received input. Uses the inputs and meta-parameters to compute the outputs. </p>
+<dd><p>Compute output for the received input. </p>
 </dd></dl>
 
 <dl class="function">
 <dt id="_CPPv2N3dmp11DmpBehavior7canStepEv">
 <span id="dmp::DmpBehavior::canStep"></span>virtual <span class="target" id="boleroclassdmp_1_1DmpBehavior_1a4c12267065d45a3aa6dab08fe849230a"></span>bool <code class="descclassname">dmp::DmpBehavior::</code><code class="descname">canStep</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3dmp11DmpBehavior7canStepEv" title="Permalink to this definition">¶</a><br /> const</dt>
-<dd><p>Returns if <a class="reference internal" href="#boleroclassdmp_1_1DmpBehavior_1a28e81945cbde6b22a73a7790dd1eefda"><span class="std std-ref">step()</span></a> can be called again. <dl class="docutils">
-<dt><strong>Return</strong></dt>
-<dd>False if the Behavior has finished executing, i.e. subsequent calls to <a class="reference internal" href="#boleroclassdmp_1_1DmpBehavior_1a28e81945cbde6b22a73a7790dd1eefda"><span class="std std-ref">step()</span></a> will result in undefined behavior. True if the Behavior can be executed for at least one more step, i.e. <a class="reference internal" href="#boleroclassdmp_1_1DmpBehavior_1a28e81945cbde6b22a73a7790dd1eefda"><span class="std std-ref">step()</span></a> can be called at least one more time. The default implementation always returns true. </dd>
-</dl>
-</p>
+<dd><p>Check if more steps are possible. </p>
 </dd></dl>
 
 <dl class="function">
@@ -1654,7 +1657,13 @@
 <dd>this is the same as python’s numpy.gradient() </dd>
 <dt><strong>Parameters</strong></dt>
 <dd><ul class="breatheparameterlist first last">
-<li><code class="first docutils literal"><span class="pre">dt</span></code> - <p>distance between two points.</p>
+<li><code class="first docutils literal"><span class="pre">in</span></code> - <p>original values, each column corresponds to a time step </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">out</span></code> - <p>will be overwritten with time derivatives </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">dt</span></code> - <p>time between two points </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">allowFinalVelocity</span></code> - <p>should the final velocity be zero or computed from the input array?</p>
 </li>
 </ul>
 </dd>
@@ -1826,7 +1835,7 @@
 <dd>how many rewards were assigned for the whole evaluation </dd>
 <dt><strong>Parameters</strong></dt>
 <dd><ul class="breatheparameterlist first last">
-<li><code class="first docutils literal"><span class="pre">feedbacks</span></code> - <p></p>
+<li><code class="first docutils literal"><span class="pre">feedback</span></code> - <p>array, will be filled with feedbacks </p>
 </li>
 </ul>
 </dd>
@@ -1996,7 +2005,7 @@
 <dd>how many rewards were assigned for the whole evaluation </dd>
 <dt><strong>Parameters</strong></dt>
 <dd><ul class="breatheparameterlist first last">
-<li><code class="first docutils literal"><span class="pre">feedbacks</span></code> - <p></p>
+<li><code class="first docutils literal"><span class="pre">feedback</span></code> - <p>array, will be filled with feedbacks </p>
 </li>
 </ul>
 </dd>
@@ -2715,7 +2724,7 @@
 <dd>how many rewards were assigned for the whole evaluation </dd>
 <dt><strong>Parameters</strong></dt>
 <dd><ul class="breatheparameterlist first last">
-<li><code class="first docutils literal"><span class="pre">feedbacks</span></code> - <p></p>
+<li><code class="first docutils literal"><span class="pre">feedback</span></code> - <p>array, will be filled with feedbacks </p>
 </li>
 </ul>
 </dd>
@@ -3541,12 +3550,12 @@
 <dl class="function">
 <dt id="_CPPv2N6bolero9bl_loader13PyEnvironment11getFeedbackEPd">
 <span id="bolero::bl_loader::PyEnvironment::getFeedback__doubleP"></span>virtual <span class="target" id="boleroclassbolero_1_1bl__loader_1_1PyEnvironment_1a0669618c7737207255e5c734b59f1f4b"></span>int <code class="descclassname">bolero::bl_loader::PyEnvironment::</code><code class="descname">getFeedback</code><span class="sig-paren">(</span>double *<em>feedback</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N6bolero9bl_loader13PyEnvironment11getFeedbackEPd" title="Permalink to this definition">¶</a><br /> const</dt>
-<dd><p>Get feedbacks from the last episode. <dl class="docutils">
+<dd><p>Get feedbacks. <dl class="docutils">
 <dt><strong>Return</strong></dt>
-<dd>how many rewards were assigned for the whole evaluation </dd>
+<dd>Number of rewards that was assigned to the pointer parameter for the whole evaluation </dd>
 <dt><strong>Parameters</strong></dt>
 <dd><ul class="breatheparameterlist first last">
-<li><code class="first docutils literal"><span class="pre">feedbacks</span></code> - <p></p>
+<li><code class="first docutils literal"><span class="pre">feedback</span></code> - <p>array, will be filled with feedback values </p>
 </li>
 </ul>
 </dd>
@@ -3607,7 +3616,7 @@
 <p><dl class="docutils">
 <dt><strong>Parameters</strong></dt>
 <dd><ul class="breatheparameterlist first last">
-<li><code class="first docutils literal"><span class="pre">initialConfigFile</span></code> - <p>should be a yaml file that can be passed to the python function module_loader.behavior_from_yaml() If this string is empty no parameter will be passed to behavior_from_yaml() and the default will be used. </p>
+<li><code class="first docutils literal"><span class="pre">initialConfigPath</span></code> - <p>should be a yaml file that can be passed to the python function module_loader.behavior_from_yaml() If this string is empty no parameter will be passed to behavior_from_yaml() and the default will be used. </p>
 </li>
 </ul>
 </dd>
@@ -3859,21 +3868,43 @@ Example config file: &gt; asd : [0.0, 0.1, 0.2, 0.3, 42.0, 42.1, 42.2] &gt; aaa 
 <dl class="function">
 <dt id="_CPPv2N3dmp13QuaternionDmp10initializeERKNSt6stringE">
 <span id="dmp::QuaternionDmp::initialize__ssCR"></span>virtual <span class="target" id="boleroclassdmp_1_1QuaternionDmp_1afff27df0af279b084e500c62eb9ea3cd"></span>bool <code class="descclassname">dmp::QuaternionDmp::</code><code class="descname">initialize</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>initialConfigPath</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3dmp13QuaternionDmp10initializeERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Initializes the dmp from the given config file </p>
+<dd><p>Initialize from yaml file <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">initialConfigPath</span></code> - <p>path to the model definition </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="_CPPv2N3dmp13QuaternionDmp10initializeERK18QuaternionDmpModel">
 <span id="dmp::QuaternionDmp::initialize__QuaternionDmpModelCR"></span>virtual <span class="target" id="boleroclassdmp_1_1QuaternionDmp_1ad30e7919e570259fcfe88473757ab2de"></span>bool <code class="descclassname">dmp::QuaternionDmp::</code><code class="descname">initialize</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv2N3dmp18QuaternionDmpModelE" title="dmp::QuaternionDmpModel">QuaternionDmpModel</a> &amp;<em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3dmp13QuaternionDmp10initializeERK18QuaternionDmpModel" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Initializes the dmp from the given model </p>
+<dd><p>Initialize from <a class="reference internal" href="#boleroclassdmp_1_1QuaternionDmpModel"><span class="std std-ref">QuaternionDmpModel</span></a> <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">model</span></code> - <p>model definition </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="_CPPv2N3dmp13QuaternionDmp9configureERKNSt6stringE">
 <span id="dmp::QuaternionDmp::configure__ssCR"></span>virtual <span class="target" id="boleroclassdmp_1_1QuaternionDmp_1aad90b326fd0d0a2d417183bbd82d6847"></span>bool <code class="descclassname">dmp::QuaternionDmp::</code><code class="descname">configure</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>configPath</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3dmp13QuaternionDmp9configureERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Configures the dmp from a yaml file. <dl class="docutils">
-<dt><strong>See</strong></dt>
-<dd>configure(QuaternionDmpConfig) </dd>
+<dd><p>Configure from yaml file <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>successfully loaded configuration </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">configPath</span></code> - <p>path to the configuration file </p>
+</li>
+</ul>
+</dd>
 </dl>
 </p>
 </dd></dl>
@@ -3881,9 +3912,15 @@ Example config file: &gt; asd : [0.0, 0.1, 0.2, 0.3, 42.0, 42.1, 42.2] &gt; aaa 
 <dl class="function">
 <dt id="_CPPv2N3dmp13QuaternionDmp13configureYamlERKNSt6stringE">
 <span id="dmp::QuaternionDmp::configureYaml__ssCR"></span>virtual <span class="target" id="boleroclassdmp_1_1QuaternionDmp_1a3f56f066dec13015b21f414b88cd9d17"></span>bool <code class="descclassname">dmp::QuaternionDmp::</code><code class="descname">configureYaml</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>yaml</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3dmp13QuaternionDmp13configureYamlERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Configures the dmp from a yaml string. <dl class="docutils">
-<dt><strong>See</strong></dt>
-<dd>configure(QuaternionDmpConfig) </dd>
+<dd><p>Configure from yaml string <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>successfully loaded configuration </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">yaml</span></code> - <p>configuration in YAML format </p>
+</li>
+</ul>
+</dd>
 </dl>
 </p>
 </dd></dl>
@@ -3895,6 +3932,12 @@ Example config file: &gt; asd : [0.0, 0.1, 0.2, 0.3, 42.0, 42.1, 42.2] &gt; aaa 
 <p><dl class="docutils">
 <dt><strong>Note</strong></dt>
 <dd>The start and end positions will be normalized. Therefore the values might differ from the values defined in the configuration file. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">config</span></code> - <p>configuration</p>
+</li>
+</ul>
+</dd>
 </dl>
 </p>
 </dd></dl>
@@ -3907,7 +3950,9 @@ Example config file: &gt; asd : [0.0, 0.1, 0.2, 0.3, 42.0, 42.1, 42.2] &gt; aaa 
 <dd>The inputs will be normalized </dd>
 <dt><strong>Parameters</strong></dt>
 <dd><ul class="breatheparameterlist first last">
-<li><code class="first docutils literal"><span class="pre">values</span></code> - <p>array of size &gt;= 4 that represents a quaternion. [w, x, ,y, z] Only the first 4 elements of the array will be used.</p>
+<li><code class="first docutils literal"><span class="pre">values</span></code> - <p>array of size &gt;= 4 that represents a quaternion. [w, x, ,y, z] Only the first 4 elements of the array will be used. </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">numInputs</span></code> - <p>number of inputs, must be 4</p>
 </li>
 </ul>
 </dd>
@@ -3923,6 +3968,8 @@ Example config file: &gt; asd : [0.0, 0.1, 0.2, 0.3, 42.0, 42.1, 42.2] &gt; aaa 
 <dd><ul class="breatheparameterlist first last">
 <li><code class="first docutils literal"><span class="pre">values</span></code> - <p>array of size &gt;= 4 that represents a quaternion. [w, x, ,y, z] The first 4 elements will be overwritten with the output. </p>
 </li>
+<li><code class="first docutils literal"><span class="pre">numOutputs</span></code> - <p>number of outputs, must be 4 </p>
+</li>
 </ul>
 </dd>
 </dl>
@@ -3932,29 +3979,38 @@ Example config file: &gt; asd : [0.0, 0.1, 0.2, 0.3, 42.0, 42.1, 42.2] &gt; aaa 
 <dl class="function">
 <dt id="_CPPv2N3dmp13QuaternionDmp4stepEv">
 <span id="dmp::QuaternionDmp::step"></span>virtual <span class="target" id="boleroclassdmp_1_1QuaternionDmp_1aaae3507fc79129460c008c1025365ad9"></span>void <code class="descclassname">dmp::QuaternionDmp::</code><code class="descname">step</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3dmp13QuaternionDmp4stepEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Compute output for the received input. Uses the inputs and meta-parameters to compute the outputs. </p>
+<dd><p>Compute output for the received input. </p>
 </dd></dl>
 
 <dl class="function">
 <dt id="_CPPv2N3dmp13QuaternionDmp7canStepEv">
 <span id="dmp::QuaternionDmp::canStep"></span>virtual <span class="target" id="boleroclassdmp_1_1QuaternionDmp_1a41f9ce35d9b229527e1a9748e1996d5c"></span>bool <code class="descclassname">dmp::QuaternionDmp::</code><code class="descname">canStep</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3dmp13QuaternionDmp7canStepEv" title="Permalink to this definition">¶</a><br /> const</dt>
-<dd><p>Returns if <a class="reference internal" href="#boleroclassdmp_1_1QuaternionDmp_1aaae3507fc79129460c008c1025365ad9"><span class="std std-ref">step()</span></a> can be called again. <dl class="docutils">
-<dt><strong>Return</strong></dt>
-<dd>False if the Behavior has finished executing, i.e. subsequent calls to <a class="reference internal" href="#boleroclassdmp_1_1QuaternionDmp_1aaae3507fc79129460c008c1025365ad9"><span class="std std-ref">step()</span></a> will result in undefined behavior. True if the Behavior can be executed for at least one more step, i.e. <a class="reference internal" href="#boleroclassdmp_1_1QuaternionDmp_1aaae3507fc79129460c008c1025365ad9"><span class="std std-ref">step()</span></a> can be called at least one more time. The default implementation always returns true. </dd>
-</dl>
-</p>
+<dd><p>Check if more steps are possible. </p>
 </dd></dl>
 
 <dl class="function">
 <dt id="_CPPv2N3dmp13QuaternionDmp10setWeightsERKN5Eigen8ArrayXXdE">
 <span id="dmp::QuaternionDmp::setWeights__Eigen::ArrayXXdCR"></span>virtual <span class="target" id="boleroclassdmp_1_1QuaternionDmp_1ab9d70a85a2b2c18d17afa77138ae9c92"></span>void <code class="descclassname">dmp::QuaternionDmp::</code><code class="descname">setWeights</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::ArrayXXd &amp;<em>newWeights</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3dmp13QuaternionDmp10setWeightsERKN5Eigen8ArrayXXdE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Sets the weights matrix of the forcing term Should be a 3xN matrix. N should be equal to the number of centers in the function approximator. </p>
+<dd><p>Sets the weights matrix of the forcing term.</p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">newWeights</span></code> - <p>A 3xN matrix. N is the number of centers in the function approximator. </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="_CPPv2N3dmp13QuaternionDmp10getWeightsEv">
 <span id="dmp::QuaternionDmp::getWeights"></span>virtual <span class="target" id="boleroclassdmp_1_1QuaternionDmp_1abb4aefd4c5014c6d0286f1e11f609807"></span><em class="property">const</em> Eigen::MatrixXd <code class="descclassname">dmp::QuaternionDmp::</code><code class="descname">getWeights</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3dmp13QuaternionDmp10getWeightsEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Gets the weights matrix of the forcing term Should be a 3xN matrix. N should be equal to the number of centers in the function approximator. </p>
+<dd><p>Gets the weights matrix of the forcing term <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A 3xN matrix. N is the number of centers in the function approximator. </dd>
+</dl>
+</p>
 </dd></dl>
 
 <dl class="function">
@@ -4188,6 +4244,8 @@ Example config file: &gt; asd : [0.0, 0.1, 0.2, 0.3, 42.0, 42.1, 42.2] &gt; aaa 
 <dd><ul class="breatheparameterlist first last">
 <li><code class="first docutils literal"><span class="pre">values</span></code> - <p>Format: [p_x, p_y, p_z, v_x, v_y, v_z, a_x, a_y, a_z, w, x, y, z] p = position, v = velocity, a = acceleration [w, x, y, z] = rotation as quaternion </p>
 </li>
+<li><code class="first docutils literal"><span class="pre">numInputs</span></code> - <p>number of inputs, must be 13 </p>
+</li>
 </ul>
 </dd>
 </dl>
@@ -4202,6 +4260,8 @@ Example config file: &gt; asd : [0.0, 0.1, 0.2, 0.3, 42.0, 42.1, 42.2] &gt; aaa 
 <dd><ul class="breatheparameterlist first last">
 <li><code class="first docutils literal"><span class="pre">values</span></code> - <p>Format: [p_x, p_y, p_z, v_x, v_y, v_z, a_x, a_y, a_z, w, x, y, z] p = position, v = velocity, a = acceleration [w, x, y, z] = rotation as quaternion </p>
 </li>
+<li><code class="first docutils literal"><span class="pre">numOutputs</span></code> - <p>number of outputs, must be 13 </p>
+</li>
 </ul>
 </dd>
 </dl>
@@ -4211,44 +4271,67 @@ Example config file: &gt; asd : [0.0, 0.1, 0.2, 0.3, 42.0, 42.1, 42.2] &gt; aaa 
 <dl class="function">
 <dt id="_CPPv2N3dmp12RigidBodyDmp4stepEv">
 <span id="dmp::RigidBodyDmp::step"></span>virtual <span class="target" id="boleroclassdmp_1_1RigidBodyDmp_1ad047aa6272ab50f44c43e93c49f40941"></span>void <code class="descclassname">dmp::RigidBodyDmp::</code><code class="descname">step</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3dmp12RigidBodyDmp4stepEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Compute output for the received input. Uses the inputs and meta-parameters to compute the outputs. </p>
+<dd><p>Compute output for the received input. </p>
 </dd></dl>
 
 <dl class="function">
 <dt id="_CPPv2N3dmp12RigidBodyDmp7canStepEv">
 <span id="dmp::RigidBodyDmp::canStep"></span>virtual <span class="target" id="boleroclassdmp_1_1RigidBodyDmp_1a6766cf26846584f9113869a32af29a49"></span>bool <code class="descclassname">dmp::RigidBodyDmp::</code><code class="descname">canStep</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3dmp12RigidBodyDmp7canStepEv" title="Permalink to this definition">¶</a><br /> const</dt>
-<dd><p>Returns if <a class="reference internal" href="#boleroclassdmp_1_1RigidBodyDmp_1ad047aa6272ab50f44c43e93c49f40941"><span class="std std-ref">step()</span></a> can be called again. <dl class="docutils">
-<dt><strong>Return</strong></dt>
-<dd>False if the Behavior has finished executing, i.e. subsequent calls to <a class="reference internal" href="#boleroclassdmp_1_1RigidBodyDmp_1ad047aa6272ab50f44c43e93c49f40941"><span class="std std-ref">step()</span></a> will result in undefined behavior. True if the Behavior can be executed for at least one more step, i.e. <a class="reference internal" href="#boleroclassdmp_1_1RigidBodyDmp_1ad047aa6272ab50f44c43e93c49f40941"><span class="std std-ref">step()</span></a> can be called at least one more time. The default implementation always returns true. </dd>
-</dl>
-</p>
+<dd><p>Check if more steps are possible. </p>
 </dd></dl>
 
 <dl class="function">
 <dt id="_CPPv2N3dmp12RigidBodyDmp10initializeERKNSt6stringE">
 <span id="dmp::RigidBodyDmp::initialize__ssCR"></span>virtual <span class="target" id="boleroclassdmp_1_1RigidBodyDmp_1a1ada4527bf4de5f425966e4fbe49ed95"></span>bool <code class="descclassname">dmp::RigidBodyDmp::</code><code class="descname">initialize</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>modelPath</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3dmp12RigidBodyDmp10initializeERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Initialize from yaml file </p>
+<dd><p>Initialize from yaml file <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">modelPath</span></code> - <p>path to the model definition </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="_CPPv2N3dmp12RigidBodyDmp14initializeYamlEKNSt6stringE">
 <span id="dmp::RigidBodyDmp::initializeYaml__ssC"></span>virtual <span class="target" id="boleroclassdmp_1_1RigidBodyDmp_1ac9a2f3609650b6077ea7826d2904a42f"></span>bool <code class="descclassname">dmp::RigidBodyDmp::</code><code class="descname">initializeYaml</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>yaml</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3dmp12RigidBodyDmp14initializeYamlEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Initialize from yaml string </p>
+<dd><p>Initialize from yaml string <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">yaml</span></code> - <p>model definition in YAML format </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="_CPPv2N3dmp12RigidBodyDmp10initializeERKN7dmp_cpp8DMPModelE">
 <span id="dmp::RigidBodyDmp::initialize__dmp_cpp::DMPModelCR"></span>virtual <span class="target" id="boleroclassdmp_1_1RigidBodyDmp_1a032847930281ca4ed6e2167388dd131a"></span>bool <code class="descclassname">dmp::RigidBodyDmp::</code><code class="descname">initialize</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv27dmp_cpp" title="dmp_cpp">dmp_cpp</a>::<a class="reference internal" href="#_CPPv2N7dmp_cpp8DMPModelE" title="dmp_cpp::DMPModel">DMPModel</a> &amp;<em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3dmp12RigidBodyDmp10initializeERKN7dmp_cpp8DMPModelE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Initialize from DMPModel </p>
+<dd><p>Initialize from DMPModel <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">model</span></code> - <p>model definition </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="_CPPv2N3dmp12RigidBodyDmp9configureERKNSt6stringE">
 <span id="dmp::RigidBodyDmp::configure__ssCR"></span>virtual <span class="target" id="boleroclassdmp_1_1RigidBodyDmp_1a72931287b8ae417aaee9e9c0d3ddcec4"></span>bool <code class="descclassname">dmp::RigidBodyDmp::</code><code class="descname">configure</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>configPath</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3dmp12RigidBodyDmp9configureERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Configures the Behavior using the specified config file. This method should be called after <a class="reference internal" href="#boleroclassdmp_1_1RigidBodyDmp_1a1ada4527bf4de5f425966e4fbe49ed95"><span class="std std-ref">initialize()</span></a>. It sets the runtime parameters of the Behavior and may be called multiple times during execution.</p>
-<p>The config file should be in yaml format. <dl class="docutils">
-<dt><strong>Return</strong></dt>
-<dd>true if the configuration was successful, false otherwise. </dd>
+<dd><p>Configure from yaml file <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">configPath</span></code> - <p>path to the configuration file </p>
+</li>
+</ul>
+</dd>
 </dl>
 </p>
 </dd></dl>
@@ -4256,13 +4339,29 @@ Example config file: &gt; asd : [0.0, 0.1, 0.2, 0.3, 42.0, 42.1, 42.2] &gt; aaa 
 <dl class="function">
 <dt id="_CPPv2N3dmp12RigidBodyDmp13configureYamlERKNSt6stringE">
 <span id="dmp::RigidBodyDmp::configureYaml__ssCR"></span>virtual <span class="target" id="boleroclassdmp_1_1RigidBodyDmp_1ab3269c36c31d69a69218ca02b2ef86e4"></span>bool <code class="descclassname">dmp::RigidBodyDmp::</code><code class="descname">configureYaml</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>yaml</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3dmp12RigidBodyDmp13configureYamlERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Configure from yaml string </p>
+<dd><p>Configure from yaml string <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">yaml</span></code> - <p>configuration in YAML format </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="_CPPv2N3dmp12RigidBodyDmp9configureERK18RigidBodyDmpConfig">
 <span id="dmp::RigidBodyDmp::configure__RigidBodyDmpConfigCR"></span>virtual <span class="target" id="boleroclassdmp_1_1RigidBodyDmp_1a977c64b7e3613d6c877578797ea0919e"></span>bool <code class="descclassname">dmp::RigidBodyDmp::</code><code class="descname">configure</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv2N3dmp18RigidBodyDmpConfigE" title="dmp::RigidBodyDmpConfig">RigidBodyDmpConfig</a> &amp;<em>config</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3dmp12RigidBodyDmp9configureERK18RigidBodyDmpConfig" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Configure from <a class="reference internal" href="#boleroclassdmp_1_1RigidBodyDmpConfig"><span class="std std-ref">RigidBodyDmpConfig</span></a> </p>
+<dd><p>Configure from <a class="reference internal" href="#boleroclassdmp_1_1RigidBodyDmpConfig"><span class="std std-ref">RigidBodyDmpConfig</span></a> <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">config</span></code> - <p>configuration </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
 </dd></dl>
 
 <dl class="function">
@@ -4271,6 +4370,8 @@ Example config file: &gt; asd : [0.0, 0.1, 0.2, 0.3, 42.0, 42.1, 42.2] &gt; aaa 
 <dd><p>Sets the weights. <dl class="docutils">
 <dt><strong>Parameters</strong></dt>
 <dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">weights</span></code> - <p>new weight array </p>
+</li>
 <li><code class="first docutils literal"><span class="pre">rows</span></code> - <p>should always be 6 </p>
 </li>
 <li><code class="first docutils literal"><span class="pre">cols</span></code> - <p>should always be the same as the columns in centers and widths </p>
@@ -4287,6 +4388,8 @@ Example config file: &gt; asd : [0.0, 0.1, 0.2, 0.3, 42.0, 42.1, 42.2] &gt; aaa 
 <dd><p>Gets the weights. <dl class="docutils">
 <dt><strong>Parameters</strong></dt>
 <dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">weights</span></code> - <p>current weight array, will be filled </p>
+</li>
 <li><code class="first docutils literal"><span class="pre">rows</span></code> - <p>should always be 6 </p>
 </li>
 <li><code class="first docutils literal"><span class="pre">cols</span></code> - <p>should always be the same as the columns in centers and widths </p>
@@ -5338,8 +5441,8 @@ template &lt;typename T&gt;</dt>
       
     </p>
     <p>
-        &copy; Copyright 2014-2017, DFKI GmbH / Robotics Innovation Center, University of Bremen / Robotics Group.<br/>
-      Last updated on Dec 19, 2017.<br/>
+        &copy; Copyright 2014-2018, DFKI GmbH / Robotics Innovation Center, University of Bremen / Robotics Group.<br/>
+      Last updated on Jan 23, 2018.<br/>
     </p>
   </div>
 </footer>

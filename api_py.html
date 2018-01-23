@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Python API &#8212; bolero 0.1.0 documentation</title>
+    <title>Python API &#8212; bolero 0.2.0 documentation</title>
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/gallery.css" type="text/css" />
@@ -12,7 +12,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.1.0',
+        VERSION:     '0.2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -50,7 +50,7 @@
         </button>
         <a class="navbar-brand" href="index.html">
           bolero</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.1.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.2.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -94,7 +94,8 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Python API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api_cpp.html">C++ API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_cpp.html">C++ API (Summary)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/cpp_modules.html">All C++ Modules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mars_environment.html">MARS Environment</a></li>
 </ul>
 </ul>
@@ -291,6 +292,12 @@
 <tr class="row-even"><td><a class="reference internal" href="modules/generated/bolero.optimizer.ContextualOptimizer.html#bolero.optimizer.ContextualOptimizer" title="bolero.optimizer.ContextualOptimizer"><code class="xref py py-obj docutils literal"><span class="pre">ContextualOptimizer</span></code></a></td>
 <td>Common interface for (contextual) optimizers.</td>
 </tr>
+<tr class="row-odd"><td><a class="reference internal" href="modules/generated/bolero.optimizer.NoOptimizer.html#bolero.optimizer.NoOptimizer" title="bolero.optimizer.NoOptimizer"><code class="xref py py-obj docutils literal"><span class="pre">NoOptimizer</span></code></a>([initial_params])</td>
+<td>No optimizer.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="modules/generated/bolero.optimizer.RandomOptimizer.html#bolero.optimizer.RandomOptimizer" title="bolero.optimizer.RandomOptimizer"><code class="xref py py-obj docutils literal"><span class="pre">RandomOptimizer</span></code></a>([initial_params,&nbsp;…])</td>
+<td>Random optimizer.</td>
+</tr>
 <tr class="row-odd"><td><a class="reference internal" href="modules/generated/bolero.optimizer.CMAESOptimizer.html#bolero.optimizer.CMAESOptimizer" title="bolero.optimizer.CMAESOptimizer"><code class="xref py py-obj docutils literal"><span class="pre">CMAESOptimizer</span></code></a>([initial_params,&nbsp;variance,&nbsp;…])</td>
 <td>Covariance Matrix Adaptation Evolution Strategy.</td>
 </tr>
@@ -303,22 +310,19 @@
 <tr class="row-even"><td><a class="reference internal" href="modules/generated/bolero.optimizer.BIPOPCMAESOptimizer.html#bolero.optimizer.BIPOPCMAESOptimizer" title="bolero.optimizer.BIPOPCMAESOptimizer"><code class="xref py py-obj docutils literal"><span class="pre">BIPOPCMAESOptimizer</span></code></a>([initial_params,&nbsp;…])</td>
 <td>BI-population CMA-ES.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="modules/generated/bolero.optimizer.NoOptimizer.html#bolero.optimizer.NoOptimizer" title="bolero.optimizer.NoOptimizer"><code class="xref py py-obj docutils literal"><span class="pre">NoOptimizer</span></code></a>([initial_params])</td>
-<td>No optimizer.</td>
+<tr class="row-odd"><td><a class="reference internal" href="modules/generated/bolero.optimizer.CCMAESOptimizer.html#bolero.optimizer.CCMAESOptimizer" title="bolero.optimizer.CCMAESOptimizer"><code class="xref py py-obj docutils literal"><span class="pre">CCMAESOptimizer</span></code></a>([initial_params,&nbsp;variance,&nbsp;…])</td>
+<td>Contextual Covariance Matrix Adaptation Evolution Strategy.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="modules/generated/bolero.optimizer.RandomOptimizer.html#bolero.optimizer.RandomOptimizer" title="bolero.optimizer.RandomOptimizer"><code class="xref py py-obj docutils literal"><span class="pre">RandomOptimizer</span></code></a>([initial_params,&nbsp;…])</td>
-<td>Random optimizer.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="modules/generated/bolero.optimizer.REPSOptimizer.html#bolero.optimizer.REPSOptimizer" title="bolero.optimizer.REPSOptimizer"><code class="xref py py-obj docutils literal"><span class="pre">REPSOptimizer</span></code></a>([initial_params,&nbsp;variance,&nbsp;…])</td>
+<tr class="row-even"><td><a class="reference internal" href="modules/generated/bolero.optimizer.REPSOptimizer.html#bolero.optimizer.REPSOptimizer" title="bolero.optimizer.REPSOptimizer"><code class="xref py py-obj docutils literal"><span class="pre">REPSOptimizer</span></code></a>([initial_params,&nbsp;variance,&nbsp;…])</td>
 <td>Relative Entropy Policy Search (REPS) as Optimizer.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="modules/generated/bolero.optimizer.CREPSOptimizer.html#bolero.optimizer.CREPSOptimizer" title="bolero.optimizer.CREPSOptimizer"><code class="xref py py-obj docutils literal"><span class="pre">CREPSOptimizer</span></code></a>([initial_params,&nbsp;variance,&nbsp;…])</td>
+<tr class="row-odd"><td><a class="reference internal" href="modules/generated/bolero.optimizer.CREPSOptimizer.html#bolero.optimizer.CREPSOptimizer" title="bolero.optimizer.CREPSOptimizer"><code class="xref py py-obj docutils literal"><span class="pre">CREPSOptimizer</span></code></a>([initial_params,&nbsp;variance,&nbsp;…])</td>
 <td>Contextual Relative Entropy Policy Search.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="modules/generated/bolero.optimizer.SkOptOptimizer.html#bolero.optimizer.SkOptOptimizer" title="bolero.optimizer.SkOptOptimizer"><code class="xref py py-obj docutils literal"><span class="pre">SkOptOptimizer</span></code></a>(dimensions[,&nbsp;base_estimator,&nbsp;…])</td>
+<tr class="row-even"><td><a class="reference internal" href="modules/generated/bolero.optimizer.SkOptOptimizer.html#bolero.optimizer.SkOptOptimizer" title="bolero.optimizer.SkOptOptimizer"><code class="xref py py-obj docutils literal"><span class="pre">SkOptOptimizer</span></code></a>(dimensions[,&nbsp;base_estimator,&nbsp;…])</td>
 <td>Bayesian Optimization from scikit-optimize.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="modules/generated/bolero.optimizer.ACMESOptimizer.html#bolero.optimizer.ACMESOptimizer" title="bolero.optimizer.ACMESOptimizer"><code class="xref py py-obj docutils literal"><span class="pre">ACMESOptimizer</span></code></a>([initial_params,&nbsp;variance,&nbsp;…])</td>
+<tr class="row-odd"><td><a class="reference internal" href="modules/generated/bolero.optimizer.ACMESOptimizer.html#bolero.optimizer.ACMESOptimizer" title="bolero.optimizer.ACMESOptimizer"><code class="xref py py-obj docutils literal"><span class="pre">ACMESOptimizer</span></code></a>([initial_params,&nbsp;variance,&nbsp;…])</td>
 <td>CMA-ES with ranking SVM as surrogate model.</td>
 </tr>
 </tbody>
@@ -477,8 +481,8 @@
       
     </p>
     <p>
-        &copy; Copyright 2014-2017, DFKI GmbH / Robotics Innovation Center, University of Bremen / Robotics Group.<br/>
-      Last updated on Dec 19, 2017.<br/>
+        &copy; Copyright 2014-2018, DFKI GmbH / Robotics Innovation Center, University of Bremen / Robotics Group.<br/>
+      Last updated on Jan 23, 2018.<br/>
     </p>
   </div>
 </footer>

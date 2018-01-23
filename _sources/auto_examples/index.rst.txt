@@ -236,6 +236,26 @@ Examples with optimization algorithms.
    :hidden:
 
    /auto_examples/optimizer/plot_cmaes
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Contextual optimization algorithms optimize">
+
+.. only:: html
+
+    .. figure:: /auto_examples/optimizer/images/thumb/sphx_glr_plot_contextual_optimization_thumb.png
+
+        :ref:`sphx_glr_auto_examples_optimizer_plot_contextual_optimization.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/optimizer/plot_contextual_optimization
 .. raw:: html
 
     <div style='clear:both'></div>

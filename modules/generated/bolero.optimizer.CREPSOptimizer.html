@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>bolero.optimizer.CREPSOptimizer &#8212; bolero 0.1.0 documentation</title>
+    <title>bolero.optimizer.CREPSOptimizer &#8212; bolero 0.2.0 documentation</title>
     <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
@@ -12,7 +12,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '0.1.0',
+        VERSION:     '0.2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -50,7 +50,7 @@
         </button>
         <a class="navbar-brand" href="../../index.html">
           bolero</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.1.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.2.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -94,7 +94,8 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../api_py.html">Python API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../api_cpp.html">C++ API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api_cpp.html">C++ API (Summary)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp_modules.html">All C++ Modules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../mars_environment.html">MARS Environment</a></li>
 </ul>
 </ul>
@@ -157,7 +158,7 @@ learning updates such that the KL divergence between successive
 distribution is below the threshold <span class="math">\(\epsilon\)</span>.</p>
 <p>This contextual version of <a class="reference internal" href="bolero.optimizer.REPSOptimizer.html#bolero.optimizer.REPSOptimizer" title="bolero.optimizer.REPSOptimizer"><code class="xref py py-class docutils literal"><span class="pre">REPSOptimizer</span></code></a>
 inherits the properties from the original algorithm. More information
-on the algorithm can be found in the original publication <a class="reference internal" href="#r6" id="id1">[R6]</a>.</p>
+on the algorithm can be found in the original publication <a class="reference internal" href="#r10" id="id1">[R10]</a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -195,7 +196,11 @@ distributions.</p>
 </div></blockquote>
 <p><strong>context_features</strong> : string or callable, optional (default: None)</p>
 <blockquote>
-<div><p>(Nonlinear) feature transformation for the context.</p>
+<div><p>(Nonlinear) feature transformation for the context. Possible options
+are ‘constant’, ‘linear’, ‘affine’, ‘quadratic’, ‘cubic’, or you can
+write a custom function that computes a transformation of the context.
+This will make a linear upper level policy capable of representing
+nonlinear functions.</p>
 </div></blockquote>
 <p><strong>gamma</strong> : float, optional (default: 1e-4)</p>
 <blockquote>
@@ -222,10 +227,10 @@ distributions.</p>
 </tbody>
 </table>
 <p class="rubric">References</p>
-<table class="docutils citation" frame="void" id="r6" rules="none">
+<table class="docutils citation" frame="void" id="r10" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[R6]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id2">2</a>)</em> Kupcsik, A.; Deisenroth, M.P.; Peters, J.; Loh, A.P.;
+<tr><td class="label">[R10]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id2">2</a>)</em> Kupcsik, A.; Deisenroth, M.P.; Peters, J.; Loh, A.P.;
 Vadakkepat, P.; Neumann, G. Model-based contextual policy search for
 data-efficient generalization of robot skills.
 Artificial Intelligence 247, 2017.</td></tr>
@@ -404,8 +409,8 @@ Artificial Intelligence 247, 2017.</td></tr>
       
     </p>
     <p>
-        &copy; Copyright 2014-2017, DFKI GmbH / Robotics Innovation Center, University of Bremen / Robotics Group.<br/>
-      Last updated on Dec 19, 2017.<br/>
+        &copy; Copyright 2014-2018, DFKI GmbH / Robotics Innovation Center, University of Bremen / Robotics Group.<br/>
+      Last updated on Jan 23, 2018.<br/>
     </p>
   </div>
 </footer>

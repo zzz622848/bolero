@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Optimization &#8212; bolero 0.1.0 documentation</title>
+    <title>Optimization &#8212; bolero 0.2.0 documentation</title>
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
@@ -12,7 +12,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.1.0',
+        VERSION:     '0.2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -50,7 +50,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           bolero</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.1.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.2.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -94,7 +94,8 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api_py.html">Python API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_cpp.html">C++ API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_cpp.html">C++ API (Summary)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp_modules.html">All C++ Modules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mars_environment.html">MARS Environment</a></li>
 </ul>
 </ul>
@@ -125,6 +126,7 @@
 </li>
 <li><a class="reference internal" href="#contextual-optimizers">Contextual Optimizers</a><ul>
 <li><a class="reference internal" href="#c-reps-optimizer">C-REPS Optimizer</a></li>
+<li><a class="reference internal" href="#c-cma-es-optimizer">C-CMA-ES Optimizer</a></li>
 </ul>
 </li>
 </ul>
@@ -303,6 +305,9 @@ provided by BOLeRo.</p>
 <tr class="row-even"><td><a class="reference internal" href="#creps-opt"><span class="std std-ref">CREPSOptimizer</span></a></td>
 <td>5 - 500 parameters and 1 - 5 context dimensions</td>
 </tr>
+<tr class="row-odd"><td><a class="reference internal" href="#ccmaes-opt"><span class="std std-ref">CCMAESOptimizer</span></a></td>
+<td>5 - 500 parameters and 1 - 5 context dimensions</td>
+</tr>
 </tbody>
 </table>
 <div class="section" id="c-reps-optimizer">
@@ -328,6 +333,13 @@ the appendix of</p>
 <a class="reference external" href="http://jmlr.org/papers/v15/fabisch14a.html">http://jmlr.org/papers/v15/fabisch14a.html</a></p>
 </div>
 </div>
+<div class="section" id="c-cma-es-optimizer">
+<span id="ccmaes-opt"></span><h3>C-CMA-ES Optimizer<a class="headerlink" href="#c-cma-es-optimizer" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="generated/bolero.optimizer.CCMAESOptimizer.html#bolero.optimizer.CCMAESOptimizer" title="bolero.optimizer.CCMAESOptimizer"><code class="xref py py-class docutils literal"><span class="pre">CCMAESOptimizer</span></code></a> is an extension of CMA-ES to the contextual
+optimization domain. It works better than C-REPS for problems where the
+step size has to be adapted quickly because the step size adaptation is
+not bounded by the KL divergence like in C-REPS.</p>
+</div>
 </div>
 </div>
 
@@ -343,8 +355,8 @@ the appendix of</p>
       
     </p>
     <p>
-        &copy; Copyright 2014-2017, DFKI GmbH / Robotics Innovation Center, University of Bremen / Robotics Group.<br/>
-      Last updated on Dec 19, 2017.<br/>
+        &copy; Copyright 2014-2018, DFKI GmbH / Robotics Innovation Center, University of Bremen / Robotics Group.<br/>
+      Last updated on Jan 23, 2018.<br/>
     </p>
   </div>
 </footer>

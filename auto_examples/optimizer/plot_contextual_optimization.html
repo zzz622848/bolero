@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Contextual Optimization &#8212; bolero 0.1.0 documentation</title>
+    <title>Contextual Optimization &#8212; bolero 0.2.0 documentation</title>
     <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
@@ -12,7 +12,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '0.1.0',
+        VERSION:     '0.2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -29,6 +29,8 @@
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Cartesian Space DMP" href="../representation/plot_cartesian_dmp.html" />
+    <link rel="prev" title="Covariance Matrix Adaption Evolution Strategy" href="plot_cmaes.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -48,7 +50,7 @@
         </button>
         <a class="navbar-brand" href="../../index.html">
           bolero</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.1.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.2.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -81,18 +83,19 @@
 <li class="toctree-l1"><a class="reference internal" href="../../modules/wrapper.html">Wrapper</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../imitation_learning.html">Imitation Learning</a></li>
 </ul>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../index.html">General examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../index.html#behavior-search-examples">Behavior search examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../index.html#dataset-examples">Dataset examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../index.html#environment-examples">Environment examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../index.html#optimizer-examples">Optimizer examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html#optimizer-examples">Optimizer examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../index.html#representation-examples">Representation examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../notebooks/index.html">Notebooks</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../api_py.html">Python API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../api_cpp.html">C++ API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api_cpp.html">C++ API (Summary)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/cpp_modules.html">All C++ Modules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../mars_environment.html">MARS Environment</a></li>
 </ul>
 </ul>
@@ -149,11 +152,12 @@ optimization optimizes a parametric function or conditional probability
 distribution. Two instances of contextual optimization algorithms are
 Contextual Relative Entropy Policy Search (C-REPS) and Contextual Covariance
 Matrix Adaptation Evolution Strategy (C-CMA-ES). Both use linear models with
-Gaussian exploration as a search distribution. Differences are in the update of
-the covariance matrix. In this example, we use a very simple objective function
-to illustrate samples from the search distribution and the current mean of the
-search distribution. Each sample is weighted based on the reward to update the
-search distribution. Weights are indicated by the color of displayed samples.</p>
+quadratic features and Gaussian exploration as a search distribution.
+Differences are in the update of the covariance matrix. In this example, we
+use a very simple objective function to illustrate samples from the search
+distribution and the current mean of the search distribution. Each sample is
+weighted based on the reward to update the search distribution. Weights are
+indicated by the color of displayed samples.</p>
 <p>We initialize the search distribution with an intentionally low variance.
 C-CMA-ES adapts quite fast, C-REPS is slower because it bounds the
 Kullback-Leibler divergence between successive search distributions.</p>
@@ -172,7 +176,7 @@ Kullback-Leibler divergence between successive search distributions.</p>
 
 
 <span class="k">def</span> <span class="nf">objective</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
-    <span class="n">x_offset</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">2.0</span><span class="p">]])</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="n">x_offset</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">s</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.2</span><span class="p">]]))</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
     <span class="k">return</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x_offset</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x_offset</span><span class="p">)])</span>
 
 
@@ -182,15 +186,15 @@ Kullback-Leibler divergence between successive search distributions.</p>
         <span class="n">objective</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">params</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">contexts</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]]))[</span><span class="mi">0</span><span class="p">]</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">contexts</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">contexts</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])])</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">contexts</span><span class="p">,</span> <span class="n">rewards</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Blues</span><span class="p">,</span>
-                 <span class="n">levels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">rewards</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">rewards</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mi">30</span><span class="p">))</span>
+                 <span class="n">levels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">rewards</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">rewards</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mi">50</span><span class="p">))</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">(),</span> <span class="n">xticks</span><span class="o">=</span><span class="p">(),</span> <span class="n">yticks</span><span class="o">=</span><span class="p">(),</span> <span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 
 
 <span class="n">random_state</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">initial_params</span> <span class="o">=</span> <span class="mf">4.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">n_samples_per_update</span> <span class="o">=</span> <span class="mi">25</span>
-<span class="n">variance</span> <span class="o">=</span> <span class="mf">0.1</span>
-<span class="n">context_features</span> <span class="o">=</span> <span class="s2">&quot;affine&quot;</span>
+<span class="n">n_samples_per_update</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">variance</span> <span class="o">=</span> <span class="mf">0.03</span>
+<span class="n">context_features</span> <span class="o">=</span> <span class="s2">&quot;quadratic&quot;</span>
 <span class="n">ccmaes</span> <span class="o">=</span> <span class="n">CCMAESOptimizer</span><span class="p">(</span>
     <span class="n">initial_params</span><span class="o">=</span><span class="n">initial_params</span><span class="p">,</span> <span class="n">n_samples_per_update</span><span class="o">=</span><span class="n">n_samples_per_update</span><span class="p">,</span>
     <span class="n">variance</span><span class="o">=</span><span class="n">variance</span><span class="p">,</span> <span class="n">context_features</span><span class="o">=</span><span class="n">context_features</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -259,7 +263,7 @@ Kullback-Leibler divergence between successive search distributions.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><strong>Total running time of the script:</strong> ( 0 minutes  5.142 seconds)</p>
+<p><strong>Total running time of the script:</strong> ( 0 minutes  5.235 seconds)</p>
 <div class="sphx-glr-footer docutils container">
 <div class="sphx-glr-download docutils container">
 <a class="reference download internal" href="../../_downloads/plot_contextual_optimization.py" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_contextual_optimization.py</span></code></a></div>
@@ -281,8 +285,8 @@ Kullback-Leibler divergence between successive search distributions.</p>
       
     </p>
     <p>
-        &copy; Copyright 2014-2017, DFKI GmbH / Robotics Innovation Center, University of Bremen / Robotics Group.<br/>
-      Last updated on Dec 19, 2017.<br/>
+        &copy; Copyright 2014-2018, DFKI GmbH / Robotics Innovation Center, University of Bremen / Robotics Group.<br/>
+      Last updated on Jan 23, 2018.<br/>
     </p>
   </div>
 </footer>

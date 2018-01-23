@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>bolero.representation.dmp_sequence &#8212; bolero 0.1.0 documentation</title>
+    <title>bolero.representation.dmp_sequence &#8212; bolero 0.2.0 documentation</title>
     <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
@@ -12,7 +12,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.1.0',
+        VERSION:     '0.2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -48,7 +48,7 @@
         </button>
         <a class="navbar-brand" href="../../../index.html">
           bolero</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.1.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.2.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -92,7 +92,8 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../api_py.html">Python API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../api_cpp.html">C++ API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api_cpp.html">C++ API (Summary)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/cpp_modules.html">All C++ Modules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../mars_environment.html">MARS Environment</a></li>
 </ul>
 </ul>
@@ -372,7 +373,7 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">learn_goal_velocities</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">subgoal_velocities</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">split</span><span class="p">(</span>
                 <span class="n">goal_vels</span><span class="p">,</span> <span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_task_dims</span>
-                            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_dmps</span><span class="p">)])</span></div>
+                            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_dmps</span><span class="o">+</span><span class="mi">1</span><span class="p">)])</span></div>
 
 <div class="viewcode-block" id="DMPSequence.set_subgoal"><a class="viewcode-back" href="../../../modules/generated/bolero.representation.DMPSequence.html#bolero.representation.DMPSequence.set_subgoal">[docs]</a>    <span class="k">def</span> <span class="nf">set_subgoal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">subgoal</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Set subgoal manually.</span>
@@ -440,7 +441,6 @@
         <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subgoal_velocities</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">subgoal_velocities</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span></div>
 
-
 <div class="viewcode-block" id="DMPSequence.reset"><a class="viewcode-back" href="../../../modules/generated/bolero.representation.DMPSequence.html#bolero.representation.DMPSequence.reset">[docs]</a>    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Reset DMP.&quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">x0</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -460,8 +460,71 @@
 
 <div class="viewcode-block" id="DMPSequence.can_step"><a class="viewcode-back" href="../../../modules/generated/bolero.representation.DMPSequence.html#bolero.representation.DMPSequence.can_step">[docs]</a>    <span class="k">def</span> <span class="nf">can_step</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Returns true if step() can be called again, false otherwise.&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">steps</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">split_steps</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">0</span></div></div>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">steps</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">split_steps</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">0</span></div>
 
+<div class="viewcode-block" id="DMPSequence.trajectory"><a class="viewcode-back" href="../../../modules/generated/bolero.representation.DMPSequence.html#bolero.representation.DMPSequence.trajectory">[docs]</a>    <span class="k">def</span> <span class="nf">trajectory</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Generate trajectory represented by the sequence of DMPs in open loop.</span>
+
+<span class="sd">        The function can be used for debugging purposes.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        X : array, shape (n_steps, n_task_dims)</span>
+<span class="sd">            Positions</span>
+
+<span class="sd">        Xd : array, shape (n_steps, n_task_dims)</span>
+<span class="sd">            Velocities</span>
+
+<span class="sd">        Xdd : array, shape (n_steps, n_task_dims)</span>
+<span class="sd">            Accelerations</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">last_t</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">last_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subgoals</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">last_yd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subgoal_velocities</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">last_ydd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_task_dims</span><span class="p">)</span>
+
+        <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_task_dims</span><span class="p">)</span>
+        <span class="n">yd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_task_dims</span><span class="p">)</span>
+        <span class="n">ydd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_task_dims</span><span class="p">)</span>
+
+        <span class="n">n_steps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">execution_times</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="n">n_steps</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_task_dims</span><span class="p">])</span>
+        <span class="n">Yd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="n">n_steps</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_task_dims</span><span class="p">])</span>
+        <span class="n">Ydd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="n">n_steps</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_task_dims</span><span class="p">])</span>
+
+        <span class="n">steps</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">execution_times</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">):</span>
+            <span class="n">dmp_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">steps</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">split_steps</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+            <span class="n">dmp</span><span class="o">.</span><span class="n">dmp_step</span><span class="p">(</span>
+                <span class="n">last_t</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span>
+                <span class="n">last_y</span><span class="p">,</span> <span class="n">last_yd</span><span class="p">,</span> <span class="n">last_ydd</span><span class="p">,</span>
+                <span class="n">y</span><span class="p">,</span> <span class="n">yd</span><span class="p">,</span> <span class="n">ydd</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">subgoals</span><span class="p">[</span><span class="n">dmp_idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">subgoal_velocities</span><span class="p">[</span><span class="n">dmp_idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_task_dims</span><span class="p">),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">subgoals</span><span class="p">[</span><span class="n">dmp_idx</span><span class="p">],</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">subgoal_velocities</span><span class="p">[</span><span class="n">dmp_idx</span><span class="p">],</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_task_dims</span><span class="p">),</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">execution_times</span><span class="p">[:</span><span class="n">dmp_idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]),</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">execution_times</span><span class="p">[:</span><span class="n">dmp_idx</span><span class="p">]),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">weights</span><span class="p">[</span><span class="n">dmp_idx</span><span class="p">],</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">widths</span><span class="p">[</span><span class="n">dmp_idx</span><span class="p">],</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">centers</span><span class="p">[</span><span class="n">dmp_idx</span><span class="p">],</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">alpha_y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">beta_y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">alpha_z</span><span class="p">[</span><span class="n">dmp_idx</span><span class="p">],</span>
+                <span class="mf">0.001</span>
+            <span class="p">)</span>
+
+            <span class="n">last_t</span> <span class="o">=</span> <span class="n">t</span>
+            <span class="n">last_y</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">y</span>
+            <span class="n">last_yd</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">yd</span>
+            <span class="n">last_ydd</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">ydd</span>
+            <span class="n">Y</span><span class="p">[</span><span class="n">steps</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">Yd</span><span class="p">[</span><span class="n">steps</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">yd</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">Ydd</span><span class="p">[</span><span class="n">steps</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">ydd</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">steps</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">return</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Yd</span><span class="p">,</span> <span class="n">Ydd</span></div></div>
 </pre></div>
 
     </div>
@@ -475,8 +538,8 @@
       
     </p>
     <p>
-        &copy; Copyright 2014-2017, DFKI GmbH / Robotics Innovation Center, University of Bremen / Robotics Group.<br/>
-      Last updated on Dec 19, 2017.<br/>
+        &copy; Copyright 2014-2018, DFKI GmbH / Robotics Innovation Center, University of Bremen / Robotics Group.<br/>
+      Last updated on Jan 23, 2018.<br/>
     </p>
   </div>
 </footer>

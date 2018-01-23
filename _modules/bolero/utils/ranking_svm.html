@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>bolero.utils.ranking_svm &#8212; bolero 0.1.0 documentation</title>
+    <title>bolero.utils.ranking_svm &#8212; bolero 0.2.0 documentation</title>
     <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
@@ -12,7 +12,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.1.0',
+        VERSION:     '0.2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -48,7 +48,7 @@
         </button>
         <a class="navbar-brand" href="../../../index.html">
           bolero</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.1.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.2.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -92,7 +92,8 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../api_py.html">Python API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../api_cpp.html">C++ API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api_cpp.html">C++ API (Summary)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/cpp_modules.html">All C++ Modules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../mars_environment.html">MARS Environment</a></li>
 </ul>
 </ul>
@@ -164,8 +165,11 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    n_iter : int</span>
+<span class="sd">    n_iter : int, optional (default: 50000 * sqrt(n_features))</span>
 <span class="sd">        Number of training iterations</span>
+
+<span class="sd">    epsilon : float, optional (default: 1.0)</span>
+<span class="sd">        Tolerance ranking value error</span>
 
 <span class="sd">    c_base : float, optional (default: 6)</span>
 <span class="sd">        Base for constraint violation cost</span>
@@ -183,6 +187,7 @@
 <div class="viewcode-block" id="RankingSVM.__init__"><a class="viewcode-back" href="../../../modules/generated/bolero.utils.ranking_svm.RankingSVM.html#bolero.utils.ranking_svm.RankingSVM.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">c_base</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">c_pow</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span>
                  <span class="n">c_sigma</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n_iter</span> <span class="o">=</span> <span class="n">n_iter</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span> <span class="o">=</span> <span class="n">epsilon</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">c_base</span> <span class="o">=</span> <span class="n">c_base</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">c_pow</span> <span class="o">=</span> <span class="n">c_pow</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">c_sigma</span> <span class="o">=</span> <span class="n">c_sigma</span>
@@ -224,7 +229,7 @@
         <span class="n">Ci</span> <span class="o">*=</span> <span class="mi">10</span> <span class="o">**</span> <span class="bp">self</span><span class="o">.</span><span class="n">c_base</span>
 
         <span class="c1"># Optimize alpha parameters</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="n">optimize</span><span class="p">(</span><span class="n">Ci</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">n_iter</span><span class="p">,</span> <span class="n">random_state</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="n">optimize</span><span class="p">(</span><span class="n">Ci</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">,</span> <span class="n">n_iter</span><span class="p">,</span> <span class="n">random_state</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="bp">self</span></div>
 
@@ -265,8 +270,8 @@
       
     </p>
     <p>
-        &copy; Copyright 2014-2017, DFKI GmbH / Robotics Innovation Center, University of Bremen / Robotics Group.<br/>
-      Last updated on Dec 19, 2017.<br/>
+        &copy; Copyright 2014-2018, DFKI GmbH / Robotics Innovation Center, University of Bremen / Robotics Group.<br/>
+      Last updated on Jan 23, 2018.<br/>
     </p>
   </div>
 </footer>
