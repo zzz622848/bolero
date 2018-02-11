@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>All C++ Modules &#8212; bolero 0.2.0 documentation</title>
+    <title>All C++ Modules &#8212; bolero 1.0.0 documentation</title>
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
@@ -12,7 +12,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.2.0',
+        VERSION:     '1.0.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -50,7 +50,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           bolero</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.2.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>1.0.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -365,14 +365,16 @@
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="_CPPv2N6bolero14BehaviorSearch4initEii">
-<span id="bolero::BehaviorSearch::init__i.i"></span>virtual <span class="target" id="boleroclassbolero_1_1BehaviorSearch_1abaa21398059909870e6a981c818ee996"></span>void <code class="descclassname">bolero::BehaviorSearch::</code><code class="descname">init</code><span class="sig-paren">(</span>int <em>numInputs</em>, int <em>numOutputs</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N6bolero14BehaviorSearch4initEii" title="Permalink to this definition">¶</a><br /> = 0</dt>
+<dt id="_CPPv2N6bolero14BehaviorSearch4initEiiNSt6stringE">
+<span id="bolero::BehaviorSearch::init__i.i.ss"></span>virtual <span class="target" id="boleroclassbolero_1_1BehaviorSearch_1aaa348b78018670b7f0fb6103eea031c9"></span>void <code class="descclassname">bolero::BehaviorSearch::</code><code class="descname">init</code><span class="sig-paren">(</span>int <em>numInputs</em>, int <em>numOutputs</em>, std::string <em>config</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N6bolero14BehaviorSearch4initEiiNSt6stringE" title="Permalink to this definition">¶</a><br /> = 0</dt>
 <dd><p>Initialize the behavior search. <dl class="docutils">
 <dt><strong>Parameters</strong></dt>
 <dd><ul class="breatheparameterlist first last">
 <li><code class="first docutils literal"><span class="pre">numInputs</span></code> - <p>number of inputs of the behavior </p>
 </li>
 <li><code class="first docutils literal"><span class="pre">numOutputs</span></code> - <p>number of outputs of the behavior </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">config</span></code> - <p>YAML-based configuration the behavior search, can be empty </p>
 </li>
 </ul>
 </dd>
@@ -692,9 +694,17 @@
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="_CPPv2N6bolero20cec13_test_functions18CEC13TestFunctions4initEv">
-<span id="bolero::cec13_test_functions::CEC13TestFunctions::init"></span>virtual <span class="target" id="boleroclassbolero_1_1cec13__test__functions_1_1CEC13TestFunctions_1a1d64cd1869a5ce5b09f7873260aca992"></span>void <code class="descclassname">bolero::cec13_test_functions::CEC13TestFunctions::</code><code class="descname">init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N6bolero20cec13_test_functions18CEC13TestFunctions4initEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Initialize environment. </p>
+<dt id="_CPPv2N6bolero20cec13_test_functions18CEC13TestFunctions4initENSt6stringE">
+<span id="bolero::cec13_test_functions::CEC13TestFunctions::init__ss"></span>virtual <span class="target" id="boleroclassbolero_1_1cec13__test__functions_1_1CEC13TestFunctions_1a43d12d8bd4109e2fa9e2e1731d7613d7"></span>void <code class="descclassname">bolero::cec13_test_functions::CEC13TestFunctions::</code><code class="descname">init</code><span class="sig-paren">(</span>std::string <em>config</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N6bolero20cec13_test_functions18CEC13TestFunctions4initENSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Initialize environment. <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">config</span></code> - <p>YAML-based configuration the environment, can be empty </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
 </dd></dl>
 
 <dl class="function">
@@ -845,12 +855,14 @@
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="_CPPv2N6bolero15cmaes_optimizer14CMAESOptimizer4initEi">
-<span id="bolero::cmaes_optimizer::CMAESOptimizer::init__i"></span>virtual <span class="target" id="boleroclassbolero_1_1cmaes__optimizer_1_1CMAESOptimizer_1a8c27094939035063cb68cd4fd1f7c882"></span>void <code class="descclassname">bolero::cmaes_optimizer::CMAESOptimizer::</code><code class="descname">init</code><span class="sig-paren">(</span>int <em>dimension</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N6bolero15cmaes_optimizer14CMAESOptimizer4initEi" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv2N6bolero15cmaes_optimizer14CMAESOptimizer4initEiNSt6stringE">
+<span id="bolero::cmaes_optimizer::CMAESOptimizer::init__i.ss"></span>virtual <span class="target" id="boleroclassbolero_1_1cmaes__optimizer_1_1CMAESOptimizer_1a14dc1bb2f279975bce6b841635cdccd8"></span>void <code class="descclassname">bolero::cmaes_optimizer::CMAESOptimizer::</code><code class="descname">init</code><span class="sig-paren">(</span>int <em>dimension</em>, std::string <em>config</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N6bolero15cmaes_optimizer14CMAESOptimizer4initEiNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Initialize optimizer. <dl class="docutils">
 <dt><strong>Parameters</strong></dt>
 <dd><ul class="breatheparameterlist first last">
 <li><code class="first docutils literal"><span class="pre">dimension</span></code> - <p>dimension of parameter vector </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">config</span></code> - <p>YAML-based configuration the optimizer, can be empty </p>
 </li>
 </ul>
 </dd>
@@ -1729,9 +1741,17 @@
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="_CPPv2N6bolero11Environment4initEv">
-<span id="bolero::Environment::init"></span>virtual <span class="target" id="boleroclassbolero_1_1Environment_1a05f3ee1dc24240edf0471da90738f693"></span>void <code class="descclassname">bolero::Environment::</code><code class="descname">init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N6bolero11Environment4initEv" title="Permalink to this definition">¶</a><br /> = 0</dt>
-<dd><p>Initialize environment. </p>
+<dt id="_CPPv2N6bolero11Environment4initENSt6stringE">
+<span id="bolero::Environment::init__ss"></span>virtual <span class="target" id="boleroclassbolero_1_1Environment_1a5d65add195759039ea310e2b90fb6263"></span>void <code class="descclassname">bolero::Environment::</code><code class="descname">init</code><span class="sig-paren">(</span>std::string <em>config</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N6bolero11Environment4initENSt6stringE" title="Permalink to this definition">¶</a><br /> = 0</dt>
+<dd><p>Initialize environment. <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">config</span></code> - <p>YAML-based configuration the environment, can be empty </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
 </dd></dl>
 
 <dl class="function">
@@ -1908,9 +1928,17 @@
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="_CPPv2N6bolero22function_approximation21FunctionApproximation4initEv">
-<span id="bolero::function_approximation::FunctionApproximation::init"></span>virtual <span class="target" id="boleroclassbolero_1_1function__approximation_1_1FunctionApproximation_1ae384617f8efdfbfbb119a193c8efef45"></span>void <code class="descclassname">bolero::function_approximation::FunctionApproximation::</code><code class="descname">init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N6bolero22function_approximation21FunctionApproximation4initEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Initialize environment. </p>
+<dt id="_CPPv2N6bolero22function_approximation21FunctionApproximation4initENSt6stringE">
+<span id="bolero::function_approximation::FunctionApproximation::init__ss"></span>virtual <span class="target" id="boleroclassbolero_1_1function__approximation_1_1FunctionApproximation_1af13c416bea52dd5f8c02e581e6ba7dd7"></span>void <code class="descclassname">bolero::function_approximation::FunctionApproximation::</code><code class="descname">init</code><span class="sig-paren">(</span>std::string <em>config</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N6bolero22function_approximation21FunctionApproximation4initENSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Initialize environment. <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">config</span></code> - <p>YAML-based configuration the environment, can be empty </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
 </dd></dl>
 
 <dl class="function">
@@ -2247,9 +2275,17 @@
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="_CPPv2N6bolero16mars_environment21MARSEnvironmentHelper4initEv">
-<span id="bolero::mars_environment::MARSEnvironmentHelper::init"></span>virtual <span class="target" id="boleroclassbolero_1_1mars__environment_1_1MARSEnvironmentHelper_1a19adc413993e478756078ff502533963"></span>void <code class="descclassname">bolero::mars_environment::MARSEnvironmentHelper::</code><code class="descname">init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N6bolero16mars_environment21MARSEnvironmentHelper4initEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Initialize environment. </p>
+<dt id="_CPPv2N6bolero16mars_environment21MARSEnvironmentHelper4initENSt6stringE">
+<span id="bolero::mars_environment::MARSEnvironmentHelper::init__ss"></span>virtual <span class="target" id="boleroclassbolero_1_1mars__environment_1_1MARSEnvironmentHelper_1a036028f6369d46b3b62cc48711560f87"></span>void <code class="descclassname">bolero::mars_environment::MARSEnvironmentHelper::</code><code class="descname">init</code><span class="sig-paren">(</span>std::string <em>config</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N6bolero16mars_environment21MARSEnvironmentHelper4initENSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Initialize environment. <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">config</span></code> - <p>YAML-based configuration the environment, can be empty </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
 </dd></dl>
 
 <dl class="function">
@@ -2641,9 +2677,17 @@
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="_CPPv2N6bolero12mountain_car11MountainCar4initEv">
-<span id="bolero::mountain_car::MountainCar::init"></span>virtual <span class="target" id="boleroclassbolero_1_1mountain__car_1_1MountainCar_1a34f288e529ee00d0a101cf45aacfefba"></span>void <code class="descclassname">bolero::mountain_car::MountainCar::</code><code class="descname">init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N6bolero12mountain_car11MountainCar4initEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Initialize environment. </p>
+<dt id="_CPPv2N6bolero12mountain_car11MountainCar4initENSt6stringE">
+<span id="bolero::mountain_car::MountainCar::init__ss"></span>virtual <span class="target" id="boleroclassbolero_1_1mountain__car_1_1MountainCar_1a41c86c262efd11bd2574d7438274b596"></span>void <code class="descclassname">bolero::mountain_car::MountainCar::</code><code class="descname">init</code><span class="sig-paren">(</span>std::string <em>config</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N6bolero12mountain_car11MountainCar4initENSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Initialize environment. <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">config</span></code> - <p>YAML-based configuration the environment, can be empty </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
 </dd></dl>
 
 <dl class="function">
@@ -2846,12 +2890,14 @@
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="_CPPv2N6bolero9Optimizer4initEi">
-<span id="bolero::Optimizer::init__i"></span>virtual <span class="target" id="boleroclassbolero_1_1Optimizer_1ada162b56bf32e8ed31ceeddf8f8a1195"></span>void <code class="descclassname">bolero::Optimizer::</code><code class="descname">init</code><span class="sig-paren">(</span>int <em>dimension</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N6bolero9Optimizer4initEi" title="Permalink to this definition">¶</a><br /> = 0</dt>
+<dt id="_CPPv2N6bolero9Optimizer4initEiNSt6stringE">
+<span id="bolero::Optimizer::init__i.ss"></span>virtual <span class="target" id="boleroclassbolero_1_1Optimizer_1ac62d0fa46f67be2b6cbea9bcd737cfae"></span>void <code class="descclassname">bolero::Optimizer::</code><code class="descname">init</code><span class="sig-paren">(</span>int <em>dimension</em>, std::string <em>config</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N6bolero9Optimizer4initEiNSt6stringE" title="Permalink to this definition">¶</a><br /> = 0</dt>
 <dd><p>Initialize optimizer. <dl class="docutils">
 <dt><strong>Parameters</strong></dt>
 <dd><ul class="breatheparameterlist first last">
 <li><code class="first docutils literal"><span class="pre">dimension</span></code> - <p>dimension of parameter vector </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">config</span></code> - <p>YAML-based configuration the optimizer, can be empty </p>
 </li>
 </ul>
 </dd>
@@ -3043,12 +3089,14 @@
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="_CPPv2N6bolero13pso_optimizer12PSOOptimizer4initEi">
-<span id="bolero::pso_optimizer::PSOOptimizer::init__i"></span>virtual <span class="target" id="boleroclassbolero_1_1pso__optimizer_1_1PSOOptimizer_1ae543f91b4bc54e38f633dc47ca0f04ef"></span>void <code class="descclassname">bolero::pso_optimizer::PSOOptimizer::</code><code class="descname">init</code><span class="sig-paren">(</span>int <em>dimension</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N6bolero13pso_optimizer12PSOOptimizer4initEi" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv2N6bolero13pso_optimizer12PSOOptimizer4initEiNSt6stringE">
+<span id="bolero::pso_optimizer::PSOOptimizer::init__i.ss"></span>virtual <span class="target" id="boleroclassbolero_1_1pso__optimizer_1_1PSOOptimizer_1a020aa9d0778d76b9a4037383ea0e6659"></span>void <code class="descclassname">bolero::pso_optimizer::PSOOptimizer::</code><code class="descname">init</code><span class="sig-paren">(</span>int <em>dimension</em>, std::string <em>config</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N6bolero13pso_optimizer12PSOOptimizer4initEiNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Initialize optimizer. <dl class="docutils">
 <dt><strong>Parameters</strong></dt>
 <dd><ul class="breatheparameterlist first last">
 <li><code class="first docutils literal"><span class="pre">dimension</span></code> - <p>dimension of parameter vector </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">config</span></code> - <p>YAML-based configuration the optimizer, can be empty </p>
 </li>
 </ul>
 </dd>
@@ -3340,14 +3388,16 @@
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="_CPPv2N6bolero9bl_loader16PyBehaviorSearch4initEii">
-<span id="bolero::bl_loader::PyBehaviorSearch::init__i.i"></span>virtual <span class="target" id="boleroclassbolero_1_1bl__loader_1_1PyBehaviorSearch_1ad8bfa37e1115032de1a31951765ecd43"></span>void <code class="descclassname">bolero::bl_loader::PyBehaviorSearch::</code><code class="descname">init</code><span class="sig-paren">(</span>int <em>numInputs</em>, int <em>numOutputs</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N6bolero9bl_loader16PyBehaviorSearch4initEii" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv2N6bolero9bl_loader16PyBehaviorSearch4initEiiNSt6stringE">
+<span id="bolero::bl_loader::PyBehaviorSearch::init__i.i.ss"></span>virtual <span class="target" id="boleroclassbolero_1_1bl__loader_1_1PyBehaviorSearch_1a43755ce7dc76efac646baf79006dab2a"></span>void <code class="descclassname">bolero::bl_loader::PyBehaviorSearch::</code><code class="descname">init</code><span class="sig-paren">(</span>int <em>numInputs</em>, int <em>numOutputs</em>, std::string <em>config</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N6bolero9bl_loader16PyBehaviorSearch4initEiiNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Initialize the behavior search. <dl class="docutils">
 <dt><strong>Parameters</strong></dt>
 <dd><ul class="breatheparameterlist first last">
 <li><code class="first docutils literal"><span class="pre">numInputs</span></code> - <p>number of inputs of the behavior </p>
 </li>
 <li><code class="first docutils literal"><span class="pre">numOutputs</span></code> - <p>number of outputs of the behavior </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">config</span></code> - <p>YAML-based configuration the behavior search, can be empty </p>
 </li>
 </ul>
 </dd>
@@ -3468,9 +3518,17 @@
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="_CPPv2N6bolero9bl_loader13PyEnvironment4initEv">
-<span id="bolero::bl_loader::PyEnvironment::init"></span>virtual <span class="target" id="boleroclassbolero_1_1bl__loader_1_1PyEnvironment_1a4ae1cddbf46f3c446995fbb56361e9c0"></span>void <code class="descclassname">bolero::bl_loader::PyEnvironment::</code><code class="descname">init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N6bolero9bl_loader13PyEnvironment4initEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Initialize environment. </p>
+<dt id="_CPPv2N6bolero9bl_loader13PyEnvironment4initENSt6stringE">
+<span id="bolero::bl_loader::PyEnvironment::init__ss"></span>virtual <span class="target" id="boleroclassbolero_1_1bl__loader_1_1PyEnvironment_1ada11c2187c0ae313acc548c122325b8f"></span>void <code class="descclassname">bolero::bl_loader::PyEnvironment::</code><code class="descname">init</code><span class="sig-paren">(</span>std::string <em>config</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N6bolero9bl_loader13PyEnvironment4initENSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Initialize environment. <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">config</span></code> - <p>YAML-based configuration the environment, can be empty </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
 </dd></dl>
 
 <dl class="function">
@@ -3741,12 +3799,14 @@ Example config file: &gt; asd : [0.0, 0.1, 0.2, 0.3, 42.0, 42.1, 42.2] &gt; aaa 
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="_CPPv2N6bolero9bl_loader11PyOptimizer4initEi">
-<span id="bolero::bl_loader::PyOptimizer::init__i"></span>virtual <span class="target" id="boleroclassbolero_1_1bl__loader_1_1PyOptimizer_1a5f0f25e99057935fd73777f28df8b172"></span>void <code class="descclassname">bolero::bl_loader::PyOptimizer::</code><code class="descname">init</code><span class="sig-paren">(</span>int <em>dimension</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N6bolero9bl_loader11PyOptimizer4initEi" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv2N6bolero9bl_loader11PyOptimizer4initEiNSt6stringE">
+<span id="bolero::bl_loader::PyOptimizer::init__i.ss"></span>virtual <span class="target" id="boleroclassbolero_1_1bl__loader_1_1PyOptimizer_1ad9b2c0f813acef7585b6e71bc0387960"></span>void <code class="descclassname">bolero::bl_loader::PyOptimizer::</code><code class="descname">init</code><span class="sig-paren">(</span>int <em>dimension</em>, std::string <em>config</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N6bolero9bl_loader11PyOptimizer4initEiNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Initialize optimizer. <dl class="docutils">
 <dt><strong>Parameters</strong></dt>
 <dd><ul class="breatheparameterlist first last">
 <li><code class="first docutils literal"><span class="pre">dimension</span></code> - <p>dimension of parameter vector </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">config</span></code> - <p>YAML-based configuration the optimizer, can be empty </p>
 </li>
 </ul>
 </dd>
@@ -5148,7 +5208,7 @@ template &lt;typename T&gt;</dt>
 <dl class="file">
 <dt>
 <span class="target" id="boleroMARSEnvPlugin_8h"></span><em>file</em> <code class="descname">MARSEnvPlugin.h</code></dt>
-<dd><em>#include “MARSReceiver.h”</em><em>#include &lt;mars/interfaces/sim/PluginInterface.h&gt;</em><em>#include &lt;mars/utils/Mutex.h&gt;</em><p>Version 0.1. </p>
+<dd><em>#include “MARSReceiver.h”</em><em>#include &lt;mars/interfaces/sim/PluginInterface.h&gt;</em><em>#include &lt;mars/utils/Mutex.h&gt;</em><em>#include &lt;mars/cfg_manager/CFGManagerInterface.h&gt;</em><p>Version 0.1. </p>
 <p><dl class="docutils">
 <dt><strong>Author</strong></dt>
 <dd>Malte Langosz </dd>
@@ -5442,7 +5502,7 @@ template &lt;typename T&gt;</dt>
     </p>
     <p>
         &copy; Copyright 2014-2018, DFKI GmbH / Robotics Innovation Center, University of Bremen / Robotics Group.<br/>
-      Last updated on Jan 23, 2018.<br/>
+      Last updated on Feb 11, 2018.<br/>
     </p>
   </div>
 </footer>
