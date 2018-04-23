@@ -2,23 +2,15 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Optimization &#8212; bolero 1.0.0 documentation</title>
+    <title>Optimization &#8212; bolero 1.0.1-dev documentation</title>
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootswatch-3.1.0/flatly/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '1.0.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
@@ -36,8 +28,7 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 
-  </head>
-  <body>
+  </head><body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -50,7 +41,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           bolero</a>
-        <span class="navbar-text navbar-version pull-left"><b>1.0.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>1.0.1-dev</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -113,7 +104,7 @@
 <li><a class="reference internal" href="#">Optimization</a><ul>
 <li><a class="reference internal" href="#optimizers">Optimizers</a><ul>
 <li><a class="reference internal" href="#no-optimizer">No Optimizer</a><ul>
-<li><a class="reference internal" href="#examples-using-bolero-optimizer-nooptimizer">Examples using <code class="docutils literal"><span class="pre">bolero.optimizer.NoOptimizer</span></code></a></li>
+<li><a class="reference internal" href="#examples-using-bolero-optimizer-nooptimizer">Examples using <code class="docutils literal notranslate"><span class="pre">bolero.optimizer.NoOptimizer</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#random-optimizer">Random Optimizer</a></li>
@@ -160,7 +151,49 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li><a class="reference internal" href="#">Optimization</a><ul>
+<li><a class="reference internal" href="#optimizers">Optimizers</a><ul>
+<li><a class="reference internal" href="#no-optimizer">No Optimizer</a><ul>
+<li><a class="reference internal" href="#examples-using-bolero-optimizer-nooptimizer">Examples using <code class="docutils literal notranslate"><span class="pre">bolero.optimizer.NoOptimizer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#random-optimizer">Random Optimizer</a></li>
+<li><a class="reference internal" href="#cma-es">CMA-ES</a></li>
+<li><a class="reference internal" href="#acm-es">ACM-ES</a></li>
+<li><a class="reference internal" href="#ipop-cma-es">IPOP-CMA-ES</a></li>
+<li><a class="reference internal" href="#bipop-cma-es">BIPOP-CMA-ES</a></li>
+<li><a class="reference internal" href="#reps">REPS</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#contextual-optimizers">Contextual Optimizers</a><ul>
+<li><a class="reference internal" href="#c-reps-optimizer">C-REPS Optimizer</a></li>
+<li><a class="reference internal" href="#c-cma-es-optimizer">C-CMA-ES Optimizer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <li>
+    <a href="representation.html" title="Previous Chapter: Representation"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; Representation</span>
+    </a>
+  </li>
+  <li>
+    <a href="behavior_search.html" title="Next Chapter: Behavior Search"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm">Behavior Search &raquo;</span>
+    </a>
+  </li>
+<form action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="col-md-9">
       
   <div class="section" id="optimization">
 <span id="optimizer"></span><h1>Optimization<a class="headerlink" href="#optimization" title="Permalink to this headline">¶</a></h1>
@@ -168,9 +201,9 @@
 be used within a behavior search algorithm to optimize parameters internally.
 That is the reason why they play an important role in BOLeRo.</p>
 <p>Optimizers seek to find some optimum (minimum or maximum) value, e.g. so that</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\arg \max_{x \in A} f(x),\]</div>
-<p>where <span class="math">\(f\)</span> is called objective function. In behavior learning, <span class="math">\(f\)</span>
+<p>where <span class="math notranslate nohighlight">\(f\)</span> is called objective function. In behavior learning, <span class="math notranslate nohighlight">\(f\)</span>
 is usually a fitness function or a reward function that has to be maximized.
 The library provides some black-box optimization algorithms. Black-box in this
 case means that no knowledge about the objective is required (e.g. gradients).</p>
@@ -218,10 +251,10 @@ functions, more sample-efficient than standard CMA-ES</td>
 </table>
 <div class="section" id="no-optimizer">
 <span id="no-opt"></span><h3>No Optimizer<a class="headerlink" href="#no-optimizer" title="Permalink to this headline">¶</a></h3>
-<p>A <a class="reference internal" href="generated/bolero.optimizer.NoOptimizer.html#bolero.optimizer.NoOptimizer" title="bolero.optimizer.NoOptimizer"><code class="xref py py-class docutils literal"><span class="pre">NoOptimizer</span></code></a> does not optimize at all. It can be used as a baseline
+<p>A <a class="reference internal" href="generated/bolero.optimizer.NoOptimizer.html#bolero.optimizer.NoOptimizer" title="bolero.optimizer.NoOptimizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">NoOptimizer</span></code></a> does not optimize at all. It can be used as a baseline
 for optimizers.</p>
 <div class="section" id="examples-using-bolero-optimizer-nooptimizer">
-<h4>Examples using <code class="docutils literal"><span class="pre">bolero.optimizer.NoOptimizer</span></code><a class="headerlink" href="#examples-using-bolero-optimizer-nooptimizer" title="Permalink to this headline">¶</a></h4>
+<h4>Examples using <code class="docutils literal notranslate"><span class="pre">bolero.optimizer.NoOptimizer</span></code><a class="headerlink" href="#examples-using-bolero-optimizer-nooptimizer" title="Permalink to this headline">¶</a></h4>
 <div class="sphx-glr-thumbcontainer" tooltip="Compare several optimizers for unimodal and multimodal optimization. As a benchmark function fo..."><div class="figure" id="id1">
 <img alt="../_images/sphx_glr_plot_optimization_thumb.png" src="../_images/sphx_glr_plot_optimization_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="../auto_examples/optimizer/plot_optimization.html#sphx-glr-auto-examples-optimizer-plot-optimization-py"><span class="std std-ref">Function Optimization</span></a></span></p>
@@ -230,22 +263,22 @@ for optimizers.</p>
 </div>
 <div class="section" id="random-optimizer">
 <span id="random-opt"></span><h3>Random Optimizer<a class="headerlink" href="#random-optimizer" title="Permalink to this headline">¶</a></h3>
-<p>A <a class="reference internal" href="generated/bolero.optimizer.RandomOptimizer.html#bolero.optimizer.RandomOptimizer" title="bolero.optimizer.RandomOptimizer"><code class="xref py py-class docutils literal"><span class="pre">RandomOptimizer</span></code></a> explores the parameter space randomly. It can be
+<p>A <a class="reference internal" href="generated/bolero.optimizer.RandomOptimizer.html#bolero.optimizer.RandomOptimizer" title="bolero.optimizer.RandomOptimizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">RandomOptimizer</span></code></a> explores the parameter space randomly. It can be
 used as a baseline for optimizers.</p>
 </div>
 <div class="section" id="cma-es">
 <span id="cmaes-opt"></span><h3>CMA-ES<a class="headerlink" href="#cma-es" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference internal" href="generated/bolero.optimizer.CMAESOptimizer.html#bolero.optimizer.CMAESOptimizer" title="bolero.optimizer.CMAESOptimizer"><code class="xref py py-class docutils literal"><span class="pre">CMAESOptimizer</span></code></a> implements the popular black-box optimizer
+<p><a class="reference internal" href="generated/bolero.optimizer.CMAESOptimizer.html#bolero.optimizer.CMAESOptimizer" title="bolero.optimizer.CMAESOptimizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">CMAESOptimizer</span></code></a> implements the popular black-box optimizer
 <a class="reference external" href="https://en.wikipedia.org/wiki/CMA-ES">Covariance Matrix Adaption Evolution Strategy</a>. It is a local optimizer although
 it can be used to search for global optima with a large population size.
 However, CMA-ES with a restart strategy like <a class="reference internal" href="#ipop-cmaes-opt"><span class="std std-ref">IPOPCMAESOptimizer</span></a> or <a class="reference internal" href="#bipop-cmaes-opt"><span class="std std-ref">BIPOPCMAESOptimizer</span></a> might work
 better in this case.</p>
-<p>The complexity of CMA-ES depends on the number of parameters <span class="math">\(N\)</span> and is
-cubic <span class="math">\(O(N^3)\)</span> because we approximate the covariance matrix of the
+<p>The complexity of CMA-ES depends on the number of parameters <span class="math notranslate nohighlight">\(N\)</span> and is
+cubic <span class="math notranslate nohighlight">\(O(N^3)\)</span> because we approximate the covariance matrix of the
 parameter vector and compute its singular value decomposition. Hence, it
 should not be used with too many parameters.</p>
 <p>CMA-ES represents its current solution by a Gaussian search distribution with
-mean <span class="math">\(\mu\)</span> and covariance <span class="math">\(\sigma \boldsymbol{C}\)</span> internally. During
+mean <span class="math notranslate nohighlight">\(\mu\)</span> and covariance <span class="math notranslate nohighlight">\(\sigma \boldsymbol{C}\)</span> internally. During
 one iteration of the algorithm we will draw several samples from the
 distribution and compute their fitness. CMA-ES will order the samples and
 compute their weights for the next update based on their rank. That is the
@@ -259,7 +292,7 @@ green ellipse.</p>
 </div>
 <div class="section" id="acm-es">
 <span id="acmes-opt"></span><h3>ACM-ES<a class="headerlink" href="#acm-es" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference internal" href="generated/bolero.optimizer.ACMESOptimizer.html#bolero.optimizer.ACMESOptimizer" title="bolero.optimizer.ACMESOptimizer"><code class="xref py py-class docutils literal"><span class="pre">ACMESOptimizer</span></code></a> is CMA-ES with a surrogate model. The surrogate model
+<p><a class="reference internal" href="generated/bolero.optimizer.ACMESOptimizer.html#bolero.optimizer.ACMESOptimizer" title="bolero.optimizer.ACMESOptimizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">ACMESOptimizer</span></code></a> is CMA-ES with a surrogate model. The surrogate model
 is a ranking SVM that tries to predict the rank of samples locally. This
 improves sample efficiency but also increases computational demand of the
 optimization algorithm. If an episode has a high cost, it will make sense
@@ -270,18 +303,18 @@ to prefer this variant of CMA-ES.</p>
 <p>CMA-ES is a local optimizer. It cannot escape local minima. Hence, to turn it
 into a global optimizer, we have to restart the optimization process when it
 gets stuck until we find a global optimum. One restart strategy is implemented
-by <a class="reference internal" href="generated/bolero.optimizer.IPOPCMAESOptimizer.html#bolero.optimizer.IPOPCMAESOptimizer" title="bolero.optimizer.IPOPCMAESOptimizer"><code class="xref py py-class docutils literal"><span class="pre">IPOPCMAESOptimizer</span></code></a>. IPOP-CMA-ES doubles the population size after
+by <a class="reference internal" href="generated/bolero.optimizer.IPOPCMAESOptimizer.html#bolero.optimizer.IPOPCMAESOptimizer" title="bolero.optimizer.IPOPCMAESOptimizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPOPCMAESOptimizer</span></code></a>. IPOP-CMA-ES doubles the population size after
 each restart.</p>
 </div>
 <div class="section" id="bipop-cma-es">
 <span id="bipop-cmaes-opt"></span><h3>BIPOP-CMA-ES<a class="headerlink" href="#bipop-cma-es" title="Permalink to this headline">¶</a></h3>
-<p>Another restart strategy is implemented by <a class="reference internal" href="generated/bolero.optimizer.BIPOPCMAESOptimizer.html#bolero.optimizer.BIPOPCMAESOptimizer" title="bolero.optimizer.BIPOPCMAESOptimizer"><code class="xref py py-class docutils literal"><span class="pre">BIPOPCMAESOptimizer</span></code></a>.
+<p>Another restart strategy is implemented by <a class="reference internal" href="generated/bolero.optimizer.BIPOPCMAESOptimizer.html#bolero.optimizer.BIPOPCMAESOptimizer" title="bolero.optimizer.BIPOPCMAESOptimizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">BIPOPCMAESOptimizer</span></code></a>.
 BIPOP-CMA-ES can decide whether it makes more sense to decrease or increase
 the population size.</p>
 </div>
 <div class="section" id="reps">
 <span id="reps-opt"></span><h3>REPS<a class="headerlink" href="#reps" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference internal" href="generated/bolero.optimizer.REPSOptimizer.html#bolero.optimizer.REPSOptimizer" title="bolero.optimizer.REPSOptimizer"><code class="xref py py-class docutils literal"><span class="pre">REPSOptimizer</span></code></a> is an episodic policy search algorithm that can be used
+<p><a class="reference internal" href="generated/bolero.optimizer.REPSOptimizer.html#bolero.optimizer.REPSOptimizer" title="bolero.optimizer.REPSOptimizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">REPSOptimizer</span></code></a> is an episodic policy search algorithm that can be used
 like a black-box optimizer. The search distribution is a multivariate Gaussian.
 REPS constrains the updates of the search distribution by bounding the KL
 divergence between successive search distributions.</p>
@@ -312,7 +345,7 @@ provided by BOLeRo.</p>
 </table>
 <div class="section" id="c-reps-optimizer">
 <span id="creps-opt"></span><h3>C-REPS Optimizer<a class="headerlink" href="#c-reps-optimizer" title="Permalink to this headline">¶</a></h3>
-<p>The <a class="reference internal" href="generated/bolero.optimizer.CREPSOptimizer.html#bolero.optimizer.CREPSOptimizer" title="bolero.optimizer.CREPSOptimizer"><code class="xref py py-class docutils literal"><span class="pre">CREPSOptimizer</span></code></a> implements the algorithm Contextual Relative
+<p>The <a class="reference internal" href="generated/bolero.optimizer.CREPSOptimizer.html#bolero.optimizer.CREPSOptimizer" title="bolero.optimizer.CREPSOptimizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">CREPSOptimizer</span></code></a> implements the algorithm Contextual Relative
 Entropy Policy Search which is a state of the art approach for contextual
 optimization. It represents the upper-level policy by a linear model with
 nonlinear features from the context. It guarantees that the Kullback-Leibler
@@ -335,7 +368,7 @@ the appendix of</p>
 </div>
 <div class="section" id="c-cma-es-optimizer">
 <span id="ccmaes-opt"></span><h3>C-CMA-ES Optimizer<a class="headerlink" href="#c-cma-es-optimizer" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference internal" href="generated/bolero.optimizer.CCMAESOptimizer.html#bolero.optimizer.CCMAESOptimizer" title="bolero.optimizer.CCMAESOptimizer"><code class="xref py py-class docutils literal"><span class="pre">CCMAESOptimizer</span></code></a> is an extension of CMA-ES to the contextual
+<p><a class="reference internal" href="generated/bolero.optimizer.CCMAESOptimizer.html#bolero.optimizer.CCMAESOptimizer" title="bolero.optimizer.CCMAESOptimizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">CCMAESOptimizer</span></code></a> is an extension of CMA-ES to the contextual
 optimization domain. It works better than C-REPS for problems where the
 step size has to be adapted quickly because the step size adaptation is
 not bounded by the KL divergence like in C-REPS.</p>
@@ -356,7 +389,7 @@ not bounded by the KL divergence like in C-REPS.</p>
     </p>
     <p>
         &copy; Copyright 2014-2018, DFKI GmbH / Robotics Innovation Center, University of Bremen / Robotics Group.<br/>
-      Last updated on Feb 11, 2018.<br/>
+      Last updated on Apr 23, 2018.<br/>
     </p>
   </div>
 </footer>

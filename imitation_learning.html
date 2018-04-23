@@ -2,23 +2,15 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Imitation Learning &#8212; bolero 1.0.0 documentation</title>
+    <title>Imitation Learning &#8212; bolero 1.0.1-dev documentation</title>
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/gallery.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootswatch-3.1.0/flatly/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.0.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
@@ -36,8 +28,7 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 
-  </head>
-  <body>
+  </head><body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -50,7 +41,7 @@
         </button>
         <a class="navbar-brand" href="index.html">
           bolero</a>
-        <span class="navbar-text navbar-version pull-left"><b>1.0.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>1.0.1-dev</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -144,7 +135,33 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li><a class="reference internal" href="#">Imitation Learning</a><ul>
+<li><a class="reference internal" href="#imitation-with-dynamical-movement-primitives">Imitation with Dynamical Movement Primitives</a></li>
+<li><a class="reference internal" href="#literature">Literature</a></li>
+</ul>
+</li>
+</ul>
+
+  <li>
+    <a href="modules/wrapper.html" title="Previous Chapter: Wrapper"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; Wrapper</span>
+    </a>
+  </li>
+  <li>
+    <a href="auto_examples/index.html" title="Next Chapter: General examples"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm">General examples &raquo;</span>
+    </a>
+  </li>
+<form action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="col-md-9">
       
   <div class="section" id="imitation-learning">
 <span id="imiatation-learning"></span><h1>Imitation Learning<a class="headerlink" href="#imitation-learning" title="Permalink to this headline">¶</a></h1>
@@ -164,11 +181,11 @@ structures.</p>
 <p>A basic overview of the field can be found in <a class="reference internal" href="#billard2013" id="id1">[Billard2013]</a>.</p>
 <div class="section" id="imitation-with-dynamical-movement-primitives">
 <h2>Imitation with Dynamical Movement Primitives<a class="headerlink" href="#imitation-with-dynamical-movement-primitives" title="Permalink to this headline">¶</a></h2>
-<p><code class="xref py py-class docutils literal"><span class="pre">DMPBehavior</span></code> s are arbitrarily parametrizable trajectories that adapt
+<p><a class="reference internal" href="modules/generated/bolero.representation.DMPBehavior.html#bolero.representation.DMPBehavior" title="bolero.representation.DMPBehavior"><code class="xref py py-class docutils literal notranslate"><span class="pre">DMPBehavior</span></code></a> s are arbitrarily parametrizable trajectories that adapt
 well to changing meta parameters like goal, or temporal scaling. With a
-given demonstration that consists of <span class="math">\(T\)</span> positions, velocities, and
+given demonstration that consists of <span class="math notranslate nohighlight">\(T\)</span> positions, velocities, and
 accelerations</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[(\boldsymbol{x}_1, \dot{\boldsymbol{x}}_1, \ddot{\boldsymbol{x}}_1, \boldsymbol{x}_2, \dot{\boldsymbol{x}}_2, \ddot{\boldsymbol{x}}_2, \ldots)\]</div>
 <p>we can determine the weights of the DMP so that we reproduce the shape of the
 demonstration.</p>
@@ -180,31 +197,31 @@ demonstrated movement (imitation learning) or to maximize a given feedback or
 reward function (reinforcement learning). However, the influence of the forcing
 term decays as the time approaches the maximum execution time of the trajectory.
 Hence, the generated movement is guaranteed to reach the goal
-<span class="math">\(\boldsymbol{g}\)</span>.</p>
+<span class="math notranslate nohighlight">\(\boldsymbol{g}\)</span>.</p>
 <p>Let us take a closer look at imitation learning with DMPs: the generated
-acceleration <span class="math">\(\ddot{\boldsymbol{x}}\)</span> at time step <span class="math">\(t\)</span> in this
+acceleration <span class="math notranslate nohighlight">\(\ddot{\boldsymbol{x}}\)</span> at time step <span class="math notranslate nohighlight">\(t\)</span> in this
 system is similar to</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\ddot{x}_t = \frac{K (g - x_{t-1})- D \tau \dot{x}_{t-1} - K (g - x_0) s + K f(s)}{\tau^2},\]</div>
-<p>where <span class="math">\(g\)</span> is the desired goal, <span class="math">\(\boldsymbol{x}\)</span> is the position,
-<span class="math">\(\boldsymbol{x}\)</span> is the velocity, <span class="math">\(s\)</span> is the phase variable
-<span class="math">\(\boldsymbol{x}_0\)</span> is the start, <span class="math">\(f(s)\)</span> is the forcing term and
-<span class="math">\(\tau\)</span> is the duration of the trajectory. <span class="math">\(K\)</span> and <span class="math">\(D\)</span> are
+<p>where <span class="math notranslate nohighlight">\(g\)</span> is the desired goal, <span class="math notranslate nohighlight">\(\boldsymbol{x}\)</span> is the position,
+<span class="math notranslate nohighlight">\(\boldsymbol{x}\)</span> is the velocity, <span class="math notranslate nohighlight">\(s\)</span> is the phase variable
+<span class="math notranslate nohighlight">\(\boldsymbol{x}_0\)</span> is the start, <span class="math notranslate nohighlight">\(f(s)\)</span> is the forcing term and
+<span class="math notranslate nohighlight">\(\tau\)</span> is the duration of the trajectory. <span class="math notranslate nohighlight">\(K\)</span> and <span class="math notranslate nohighlight">\(D\)</span> are
 constants. In order to follow a demonstrated trajectory we compute the required
-forcing terms by solving for <span class="math">\(f(s)\)</span>:</p>
-<div class="math">
+forcing terms by solving for <span class="math notranslate nohighlight">\(f(s)\)</span>:</p>
+<div class="math notranslate nohighlight">
 \[\frac{\tau^2 \ddot{\boldsymbol{x}}_t - K (\boldsymbol{g} - \boldsymbol{x}_{t-1}) - D \tau \dot{\boldsymbol{x}}_{t-1} - K (\boldsymbol{g} - \boldsymbol{x}_0) s}{K} = f_\text{target}(s).\]</div>
-<p>These are targets for the function approximator that generates <span class="math">\(f\)</span>.
+<p>These are targets for the function approximator that generates <span class="math notranslate nohighlight">\(f\)</span>.
 Now, we just need to apply any supervised learning algorithm that minimizes the
-error <span class="math">\(E\)</span> of the actual targets <span class="math">\(f(s)\)</span> with respect to the desired
-targets <span class="math">\(f_\text{target}(s)\)</span></p>
-<div class="math">
+error <span class="math notranslate nohighlight">\(E\)</span> of the actual targets <span class="math notranslate nohighlight">\(f(s)\)</span> with respect to the desired
+targets <span class="math notranslate nohighlight">\(f_\text{target}(s)\)</span></p>
+<div class="math notranslate nohighlight">
 \[E = \sum_s (f_\text{target}(s) - f(s))^2.\]</div>
-<p>Suppose we have <span class="math">\(N\)</span> demonstrations stored in an array X. We can use the
+<p>Suppose we have <span class="math notranslate nohighlight">\(N\)</span> demonstrations stored in an array X. We can use the
 imitation learning algorithm with only a few lines of code:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">bolero.datasets</span> <span class="k">import</span> <span class="n">make_minimum_jerk</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">bolero.representation</span> <span class="k">import</span> <span class="n">DMPBehavior</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">bolero.datasets</span> <span class="kn">import</span> <span class="n">make_minimum_jerk</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">bolero.representation</span> <span class="kn">import</span> <span class="n">DMPBehavior</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dmp</span> <span class="o">=</span> <span class="n">DMPBehavior</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dmp</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dmp</span><span class="o">.</span><span class="n">imitate</span><span class="p">(</span><span class="o">*</span><span class="n">make_minimum_jerk</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">))</span>
@@ -239,7 +256,7 @@ imitation learning algorithm with only a few lines of code:</p>
     </p>
     <p>
         &copy; Copyright 2014-2018, DFKI GmbH / Robotics Innovation Center, University of Bremen / Robotics Group.<br/>
-      Last updated on Feb 11, 2018.<br/>
+      Last updated on Apr 23, 2018.<br/>
     </p>
   </div>
 </footer>

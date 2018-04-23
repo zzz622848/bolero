@@ -19,7 +19,16 @@ this domain.
     :align: center
 
 
+.. rst-class:: sphx-glr-script-out
 
+ Out::
+
+    [33mWARN: gym.spaces.Box autodetected dtype as <type 'numpy.float32'>. Please provide explicit dtype.[0m
+
+
+
+
+|
 
 
 .. code-block:: python
@@ -53,7 +62,7 @@ this domain.
     ax.set_ylim(-10, 210)
     plt.show()
 
-**Total running time of the script:** ( 0 minutes  2.346 seconds)
+**Total running time of the script:** ( 0 minutes  1.966 seconds)
 
 
 

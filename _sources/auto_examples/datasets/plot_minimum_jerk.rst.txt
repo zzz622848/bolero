@@ -40,7 +40,7 @@ An example for a minimum jerk trajectory is displayed in the following plot.
     plt.plot(Xdd[0, :, 0])
     plt.show()
 
-**Total running time of the script:** ( 0 minutes  0.219 seconds)
+**Total running time of the script:** ( 0 minutes  0.109 seconds)
 
 
 

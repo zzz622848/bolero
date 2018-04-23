@@ -2,23 +2,15 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>MARS Environment &#8212; bolero 1.0.0 documentation</title>
+    <title>MARS Environment &#8212; bolero 1.0.1-dev documentation</title>
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/gallery.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootswatch-3.1.0/flatly/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.0.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
@@ -35,8 +27,7 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 
-  </head>
-  <body>
+  </head><body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -49,7 +40,7 @@
         </button>
         <a class="navbar-brand" href="index.html">
           bolero</a>
-        <span class="navbar-text navbar-version pull-left"><b>1.0.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>1.0.1-dev</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -149,7 +140,35 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li><a class="reference internal" href="#">MARS Environment</a><ul>
+<li><a class="reference internal" href="#folder-and-file-structure-of-an-environment">Folder and File Structure of an Environment</a></li>
+<li><a class="reference internal" href="#building-an-environment">Building an Environment</a></li>
+<li><a class="reference internal" href="#creating-your-own-environment">Creating Your Own Environment</a><ul>
+<li><a class="reference internal" href="#cmakelists-txt">CMakeLists.txt</a></li>
+<li><a class="reference internal" href="#throwingenvironment-h">ThrowingEnvironment.h</a></li>
+<li><a class="reference internal" href="#throwingenvironment-cpp">ThrowingEnvironment.cpp</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <li>
+    <a href="modules/cpp_modules.html" title="Previous Chapter: All C++ Modules"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; All C++ Modules</span>
+    </a>
+  </li>
+<form action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="col-md-9">
       
   <div class="section" id="mars-environment">
 <span id="id1"></span><h1>MARS Environment<a class="headerlink" href="#mars-environment" title="Permalink to this headline">¶</a></h1>
@@ -197,7 +216,7 @@ existing configuration files (everything that is located in src/).</p>
 <h2>Building an Environment<a class="headerlink" href="#building-an-environment" title="Permalink to this headline">¶</a></h2>
 <p>Building a MARS-based environment is straightforward and not much different
 to the standard CMake-based build process:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>mkdir build
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir build
 <span class="nb">cd</span> build
 cmake_debug ..  <span class="c1"># this is different, &#39;cmake_debug&#39; knows where bolero-dev is</span>
 make install
@@ -215,7 +234,7 @@ For further details, please take a look at the full source code.</p>
 <div class="section" id="cmakelists-txt">
 <h3>CMakeLists.txt<a class="headerlink" href="#cmakelists-txt" title="Permalink to this headline">¶</a></h3>
 <p>A MARS environment depends on BOLeRo and the base class for MARS environments.</p>
-<div class="highlight-cmake"><div class="highlight"><pre><span></span><span class="nb">pkg_check_modules</span><span class="p">(</span><span class="s">BOLERO</span> <span class="s2">&quot;bolero&quot;</span><span class="p">)</span>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">pkg_check_modules</span><span class="p">(</span><span class="s">BOLERO</span> <span class="s2">&quot;bolero&quot;</span><span class="p">)</span>
 <span class="nb">include_directories</span><span class="p">(</span><span class="o">${</span><span class="nv">BOLERO_INCLUDE_DIRS</span><span class="o">}</span><span class="p">)</span>
 
 <span class="nb">pkg_check_modules</span><span class="p">(</span><span class="s">MARS_ENV</span> <span class="s2">&quot;mars_environment&quot;</span><span class="p">)</span>
@@ -224,7 +243,7 @@ For further details, please take a look at the full source code.</p>
 </pre></div>
 </div>
 <p>The environment will be compiled to a library.</p>
-<div class="highlight-cmake"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="s">SOURCES</span> <span class="s">src/ThrowingEnvironment.cpp</span><span class="p">)</span>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="s">SOURCES</span> <span class="s">src/ThrowingEnvironment.cpp</span><span class="p">)</span>
 <span class="nb">set</span><span class="p">(</span><span class="s">HEADERS</span> <span class="s">src/ThrowingEnvironment.h</span><span class="p">)</span>
 
 <span class="nb">add_library</span><span class="p">(</span><span class="o">${</span><span class="nv">PROJECT_NAME</span><span class="o">}</span> <span class="s">SHARED</span> <span class="o">${</span><span class="nv">SOURCES</span><span class="o">}</span><span class="p">)</span>
@@ -237,7 +256,7 @@ For further details, please take a look at the full source code.</p>
 </div>
 <p>The following files have to be installed: the library, headers, pkg-config
 information, and scene configuration files.</p>
-<div class="highlight-cmake"><div class="highlight"><pre><span></span><span class="c"># Install the library into the lib folder</span>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="c"># Install the library into the lib folder</span>
 <span class="nb">install</span><span class="p">(</span><span class="s">TARGETS</span> <span class="o">${</span><span class="nv">PROJECT_NAME</span><span class="o">}</span> <span class="o">${</span><span class="nv">_INSTALL_DESTINATIONS</span><span class="o">}</span><span class="p">)</span>
 
 <span class="c"># Install headers into mars include directory</span>
@@ -262,7 +281,7 @@ information, and scene configuration files.</p>
 <p>Our <cite>ThrowingEnvironment</cite> is a subclass of <cite>mars_environment::MARSEnvironment</cite>
 and, in this case, BOLeRo’s <cite>ContextualEnvironment</cite>. A contextual environment
 defines a problem that can be parameterized by a context vector.</p>
-<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="n">bolero</span> <span class="p">{</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="n">bolero</span> <span class="p">{</span>
   <span class="k">namespace</span> <span class="n">throwing_environment</span> <span class="p">{</span>
 
     <span class="k">class</span> <span class="nc">ThrowingEnvironment</span> <span class="o">:</span> <span class="k">public</span> <span class="n">mars_environment</span><span class="o">::</span><span class="n">MARSEnvironment</span><span class="p">,</span>
@@ -270,7 +289,7 @@ defines a problem that can be parameterized by a context vector.</p>
 </pre></div>
 </div>
 <p>The following functions have to be implemented.</p>
-<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="k">virtual</span> <span class="kt">void</span> <span class="nf">initMARSEnvironment</span><span class="p">();</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">virtual</span> <span class="kt">void</span> <span class="nf">initMARSEnvironment</span><span class="p">();</span>
 <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">resetMARSEnvironment</span><span class="p">();</span>
 <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">handleMARSError</span><span class="p">();</span>
 
@@ -294,7 +313,7 @@ defines a problem that can be parameterized by a context vector.</p>
 <h3>ThrowingEnvironment.cpp<a class="headerlink" href="#throwingenvironment-cpp" title="Permalink to this headline">¶</a></h3>
 <p>In <cite>ThrowingEnvironment::initMARSEnvironment()</cite> we load the configuration of
 the environment.</p>
-<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="n">ThrowingEnvironment</span><span class="o">::</span><span class="n">initMARSEnvironment</span><span class="p">()</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="n">ThrowingEnvironment</span><span class="o">::</span><span class="n">initMARSEnvironment</span><span class="p">()</span>
 <span class="p">{</span>
   <span class="n">readConfig</span><span class="p">();</span>
   <span class="n">request_context</span><span class="p">(</span><span class="n">targetPos</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span> <span class="mi">2</span><span class="p">);</span>
@@ -360,7 +379,7 @@ the environment.</p>
 </div>
 <p>To reset the environment, we usually have to set the joint angles to the
 initial state.</p>
-<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="n">ThrowingEnvironment</span><span class="o">::</span><span class="n">resetMARSEnvironment</span><span class="p">()</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="n">ThrowingEnvironment</span><span class="o">::</span><span class="n">resetMARSEnvironment</span><span class="p">()</span>
 <span class="p">{</span>
   <span class="n">fitness</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
   <span class="n">evaluation_done</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
@@ -385,7 +404,7 @@ initial state.</p>
 <p><cite>ThrowingEnvironment::handleMARSError()</cite> will be called when an exception
 occurs during simulation. We should set a very bad fitness and finish the
 evaluation in the environment.</p>
-<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="n">ThrowingEnvironment</span><span class="o">::</span><span class="n">handleMARSError</span><span class="p">()</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="n">ThrowingEnvironment</span><span class="o">::</span><span class="n">handleMARSError</span><span class="p">()</span>
 <span class="p">{</span>
   <span class="n">fitness</span> <span class="o">=</span> <span class="o">-</span><span class="n">DBL_MAX</span><span class="p">;</span>
   <span class="n">evaluation_done</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
@@ -394,7 +413,7 @@ evaluation in the environment.</p>
 </div>
 <p>After each simulation step, this function will be called. Usually we
 want to output joint states. We could also output sensor measurements.</p>
-<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="n">ThrowingEnvironment</span><span class="o">::</span><span class="n">createOutputValues</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="n">ThrowingEnvironment</span><span class="o">::</span><span class="n">createOutputValues</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="n">setPositionOfVisualTarget</span><span class="p">();</span> <span class="c1">// must always be done, falls down otherwise</span>
   <span class="n">outputMotorPositions</span><span class="p">();</span>
@@ -442,7 +461,7 @@ want to output joint states. We could also output sensor measurements.</p>
 </div>
 <p>Before a simulation step is computed, we at least should write the motor
 commands.</p>
-<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="n">ThrowingEnvironment</span><span class="o">::</span><span class="n">handleInputValues</span><span class="p">()</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="n">ThrowingEnvironment</span><span class="o">::</span><span class="n">handleInputValues</span><span class="p">()</span>
 <span class="p">{</span>
   <span class="n">setMotorValues</span><span class="p">();</span>
   <span class="n">checkBallThrowTime</span><span class="p">();</span>
@@ -462,7 +481,7 @@ commands.</p>
 </pre></div>
 </div>
 <p>In a contextual environment, we have to set the context on request.</p>
-<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="o">*</span> <span class="n">ThrowingEnvironment</span><span class="o">::</span><span class="n">request_context</span><span class="p">(</span><span class="kt">double</span> <span class="o">*</span><span class="n">context</span><span class="p">,</span> <span class="kt">int</span> <span class="n">size</span><span class="p">)</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="o">*</span> <span class="n">ThrowingEnvironment</span><span class="o">::</span><span class="n">request_context</span><span class="p">(</span><span class="kt">double</span> <span class="o">*</span><span class="n">context</span><span class="p">,</span> <span class="kt">int</span> <span class="n">size</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="k">if</span><span class="p">(</span><span class="n">size</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">)</span>
     <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
@@ -492,7 +511,7 @@ commands.</p>
     </p>
     <p>
         &copy; Copyright 2014-2018, DFKI GmbH / Robotics Innovation Center, University of Bremen / Robotics Group.<br/>
-      Last updated on Feb 11, 2018.<br/>
+      Last updated on Apr 23, 2018.<br/>
     </p>
   </div>
 </footer>

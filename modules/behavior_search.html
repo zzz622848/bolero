@@ -2,23 +2,15 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Behavior Search &#8212; bolero 1.0.0 documentation</title>
+    <title>Behavior Search &#8212; bolero 1.0.1-dev documentation</title>
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootswatch-3.1.0/flatly/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '1.0.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
@@ -36,8 +28,7 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 
-  </head>
-  <body>
+  </head><body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -50,7 +41,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           bolero</a>
-        <span class="navbar-text navbar-version pull-left"><b>1.0.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>1.0.1-dev</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -113,11 +104,11 @@
 <li><a class="reference internal" href="#">Behavior Search</a><ul>
 <li><a class="reference internal" href="#id2">Behavior Search</a><ul>
 <li><a class="reference internal" href="#black-box-search">Black-box Search</a><ul>
-<li><a class="reference internal" href="#examples-using-bolero-behavior-search-blackboxsearch">Examples using <code class="docutils literal"><span class="pre">bolero.behavior_search.BlackBoxSearch</span></code></a></li>
+<li><a class="reference internal" href="#examples-using-bolero-behavior-search-blackboxsearch">Examples using <code class="docutils literal notranslate"><span class="pre">bolero.behavior_search.BlackBoxSearch</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#monte-carlo-reinforcement-learning">Monte Carlo Reinforcement Learning</a><ul>
-<li><a class="reference internal" href="#examples-using-bolero-behavior-search-montecarlorl">Examples using <code class="docutils literal"><span class="pre">bolero.behavior_search.MonteCarloRL</span></code></a></li>
+<li><a class="reference internal" href="#examples-using-bolero-behavior-search-montecarlorl">Examples using <code class="docutils literal notranslate"><span class="pre">bolero.behavior_search.MonteCarloRL</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -157,7 +148,46 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li><a class="reference internal" href="#">Behavior Search</a><ul>
+<li><a class="reference internal" href="#id2">Behavior Search</a><ul>
+<li><a class="reference internal" href="#black-box-search">Black-box Search</a><ul>
+<li><a class="reference internal" href="#examples-using-bolero-behavior-search-blackboxsearch">Examples using <code class="docutils literal notranslate"><span class="pre">bolero.behavior_search.BlackBoxSearch</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#monte-carlo-reinforcement-learning">Monte Carlo Reinforcement Learning</a><ul>
+<li><a class="reference internal" href="#examples-using-bolero-behavior-search-montecarlorl">Examples using <code class="docutils literal notranslate"><span class="pre">bolero.behavior_search.MonteCarloRL</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#contextual-behavior-search">Contextual Behavior Search</a><ul>
+<li><a class="reference internal" href="#contextual-black-box-search">Contextual Black-box Search</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <li>
+    <a href="optimizer.html" title="Previous Chapter: Optimization"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; Optimization</span>
+    </a>
+  </li>
+  <li>
+    <a href="environment.html" title="Next Chapter: Environment"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm">Environment &raquo;</span>
+    </a>
+  </li>
+<form action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="col-md-9">
       
   <div class="section" id="behavior-search">
 <span id="id1"></span><h1>Behavior Search<a class="headerlink" href="#behavior-search" title="Permalink to this headline">¶</a></h1>
@@ -188,13 +218,13 @@ provided by BOLeRo.</p>
 </table>
 <div class="section" id="black-box-search">
 <span id="id3"></span><h3>Black-box Search<a class="headerlink" href="#black-box-search" title="Permalink to this headline">¶</a></h3>
-<p>A <a class="reference internal" href="generated/bolero.behavior_search.BlackBoxSearch.html#bolero.behavior_search.BlackBoxSearch" title="bolero.behavior_search.BlackBoxSearch"><code class="xref py py-class docutils literal"><span class="pre">BlackBoxSearch</span></code></a> combines an <a class="reference internal" href="generated/bolero.optimizer.Optimizer.html#bolero.optimizer.Optimizer" title="bolero.optimizer.Optimizer"><code class="xref py py-class docutils literal"><span class="pre">Optimizer</span></code></a> and a
-<a class="reference internal" href="generated/bolero.representation.BlackBoxBehavior.html#bolero.representation.BlackBoxBehavior" title="bolero.representation.BlackBoxBehavior"><code class="xref py py-class docutils literal"><span class="pre">BlackBoxBehavior</span></code></a> for <a class="reference external" href="https://en.wikipedia.org/wiki/Reinforcement_learning#Direct_policy_search">direct policy search</a>.
+<p>A <a class="reference internal" href="generated/bolero.behavior_search.BlackBoxSearch.html#bolero.behavior_search.BlackBoxSearch" title="bolero.behavior_search.BlackBoxSearch"><code class="xref py py-class docutils literal notranslate"><span class="pre">BlackBoxSearch</span></code></a> combines an <a class="reference internal" href="generated/bolero.optimizer.Optimizer.html#bolero.optimizer.Optimizer" title="bolero.optimizer.Optimizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Optimizer</span></code></a> and a
+<a class="reference internal" href="generated/bolero.representation.BlackBoxBehavior.html#bolero.representation.BlackBoxBehavior" title="bolero.representation.BlackBoxBehavior"><code class="xref py py-class docutils literal notranslate"><span class="pre">BlackBoxBehavior</span></code></a> for <a class="reference external" href="https://en.wikipedia.org/wiki/Reinforcement_learning#Direct_policy_search">direct policy search</a>.
 The optimizer does not need to know anything about the behavior except its
 number of parameters and the performance in the environment to do direct policy
 search.</p>
 <div class="section" id="examples-using-bolero-behavior-search-blackboxsearch">
-<h4>Examples using <code class="docutils literal"><span class="pre">bolero.behavior_search.BlackBoxSearch</span></code><a class="headerlink" href="#examples-using-bolero-behavior-search-blackboxsearch" title="Permalink to this headline">¶</a></h4>
+<h4>Examples using <code class="docutils literal notranslate"><span class="pre">bolero.behavior_search.BlackBoxSearch</span></code><a class="headerlink" href="#examples-using-bolero-behavior-search-blackboxsearch" title="Permalink to this headline">¶</a></h4>
 <div class="sphx-glr-thumbcontainer" tooltip="This is an example of how to use the Cart Pole environment from OpenAI Gym via the wrapper that..."><div class="figure" id="id5">
 <img alt="../_images/sphx_glr_plot_cart_pole_thumb.png" src="../_images/sphx_glr_plot_cart_pole_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="../auto_examples/behavior_search/plot_cart_pole.html#sphx-glr-auto-examples-behavior-search-plot-cart-pole-py"><span class="std std-ref">Cart Pole</span></a></span></p>
@@ -207,14 +237,14 @@ search.</p>
 </div>
 <div class="section" id="monte-carlo-reinforcement-learning">
 <span id="monte-carlo-rl"></span><h3>Monte Carlo Reinforcement Learning<a class="headerlink" href="#monte-carlo-reinforcement-learning" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference internal" href="generated/bolero.behavior_search.MonteCarloRL.html#bolero.behavior_search.MonteCarloRL" title="bolero.behavior_search.MonteCarloRL"><code class="xref py py-class docutils literal"><span class="pre">MonteCarloRL</span></code></a> is a epsilon-soft on-policy Monte Carlo control
+<p><a class="reference internal" href="generated/bolero.behavior_search.MonteCarloRL.html#bolero.behavior_search.MonteCarloRL" title="bolero.behavior_search.MonteCarloRL"><code class="xref py py-class docutils literal notranslate"><span class="pre">MonteCarloRL</span></code></a> is a epsilon-soft on-policy Monte Carlo control
 algorithm. It is a model-free reinforcement learning method. The
 epsilon-greedy policy that is used during the learning process is derived
 from the state-action value function Q. Q is estimated from the experience of
 previous episodes. This implementation can only handle discrete state and
 action spaces.</p>
 <div class="section" id="examples-using-bolero-behavior-search-montecarlorl">
-<h4>Examples using <code class="docutils literal"><span class="pre">bolero.behavior_search.MonteCarloRL</span></code><a class="headerlink" href="#examples-using-bolero-behavior-search-montecarlorl" title="Permalink to this headline">¶</a></h4>
+<h4>Examples using <code class="docutils literal notranslate"><span class="pre">bolero.behavior_search.MonteCarloRL</span></code><a class="headerlink" href="#examples-using-bolero-behavior-search-montecarlorl" title="Permalink to this headline">¶</a></h4>
 <div class="sphx-glr-thumbcontainer" tooltip="A simple problem with a discrete state and action space is solved with a tabular reinforcement ..."><div class="figure" id="id7">
 <img alt="../_images/sphx_glr_plot_discrete_problem_thumb.png" src="../_images/sphx_glr_plot_discrete_problem_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="../auto_examples/behavior_search/plot_discrete_problem.html#sphx-glr-auto-examples-behavior-search-plot-discrete-problem-py"><span class="std std-ref">Discrete Problem</span></a></span></p>
@@ -244,9 +274,9 @@ that are provided by BOLeRo.</p>
 </table>
 <div class="section" id="contextual-black-box-search">
 <span id="id4"></span><h3>Contextual Black-box Search<a class="headerlink" href="#contextual-black-box-search" title="Permalink to this headline">¶</a></h3>
-<p>A <a class="reference internal" href="generated/bolero.behavior_search.ContextualBlackBoxSearch.html#bolero.behavior_search.ContextualBlackBoxSearch" title="bolero.behavior_search.ContextualBlackBoxSearch"><code class="xref py py-class docutils literal"><span class="pre">ContextualBlackBoxSearch</span></code></a> combines a
-<a class="reference internal" href="generated/bolero.optimizer.ContextualOptimizer.html#bolero.optimizer.ContextualOptimizer" title="bolero.optimizer.ContextualOptimizer"><code class="xref py py-class docutils literal"><span class="pre">ContextualOptimizer</span></code></a> and a
-<a class="reference internal" href="generated/bolero.representation.BlackBoxBehavior.html#bolero.representation.BlackBoxBehavior" title="bolero.representation.BlackBoxBehavior"><code class="xref py py-class docutils literal"><span class="pre">BlackBoxBehavior</span></code></a> for contextual policy search.
+<p>A <a class="reference internal" href="generated/bolero.behavior_search.ContextualBlackBoxSearch.html#bolero.behavior_search.ContextualBlackBoxSearch" title="bolero.behavior_search.ContextualBlackBoxSearch"><code class="xref py py-class docutils literal notranslate"><span class="pre">ContextualBlackBoxSearch</span></code></a> combines a
+<a class="reference internal" href="generated/bolero.optimizer.ContextualOptimizer.html#bolero.optimizer.ContextualOptimizer" title="bolero.optimizer.ContextualOptimizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">ContextualOptimizer</span></code></a> and a
+<a class="reference internal" href="generated/bolero.representation.BlackBoxBehavior.html#bolero.representation.BlackBoxBehavior" title="bolero.representation.BlackBoxBehavior"><code class="xref py py-class docutils literal notranslate"><span class="pre">BlackBoxBehavior</span></code></a> for contextual policy search.
 The contextual optimizer does not need to know anything about the behavior
 except its number of parameters and the performance in the environment to do
 contextual policy search.</p>
@@ -267,7 +297,7 @@ contextual policy search.</p>
     </p>
     <p>
         &copy; Copyright 2014-2018, DFKI GmbH / Robotics Innovation Center, University of Bremen / Robotics Group.<br/>
-      Last updated on Feb 11, 2018.<br/>
+      Last updated on Apr 23, 2018.<br/>
     </p>
   </div>
 </footer>

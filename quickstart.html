@@ -2,23 +2,15 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Quick Start with Python &#8212; bolero 1.0.0 documentation</title>
+    <title>Quick Start with Python &#8212; bolero 1.0.1-dev documentation</title>
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/gallery.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootswatch-3.1.0/flatly/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.0.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
@@ -36,8 +28,7 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 
-  </head>
-  <body>
+  </head><body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -50,7 +41,7 @@
         </button>
         <a class="navbar-brand" href="index.html">
           bolero</a>
-        <span class="navbar-text navbar-version pull-left"><b>1.0.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>1.0.1-dev</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -145,7 +136,34 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li><a class="reference internal" href="#">Quick Start with Python</a><ul>
+<li><a class="reference internal" href="#using-a-controller">Using a Controller</a></li>
+<li><a class="reference internal" href="#optimization">Optimization</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+
+  <li>
+    <a href="quickstart-controller.html" title="Previous Chapter: Quick Start with the Controller"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; Quick Start w...</span>
+    </a>
+  </li>
+  <li>
+    <a href="contributing.html" title="Next Chapter: Contributing"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm">Contributing &raquo;</span>
+    </a>
+  </li>
+<form action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="col-md-9">
       
   <div class="section" id="quick-start-with-python">
 <h1>Quick Start with Python<a class="headerlink" href="#quick-start-with-python" title="Permalink to this headline">¶</a></h1>
@@ -158,8 +176,8 @@ behavior learning process. Let us start with a simple example. We need an
 environment that specifies a learning problem. Let’s say, we want to avoid
 obstacles in a two-dimensional space and minimize the accelerations at the
 same time.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">bolero.environment</span> <span class="k">import</span> <span class="n">OptimumTrajectory</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">bolero.environment</span> <span class="kn">import</span> <span class="n">OptimumTrajectory</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">n_task_dims</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">obstacles</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">])]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x0</span><span class="p">,</span> <span class="n">g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_task_dims</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n_task_dims</span><span class="p">)</span>
@@ -173,7 +191,7 @@ same time.</p>
 </div>
 <p>In order to learn a behavior, we need a behavior, e.g. a DMP that defines an
 end-effector trajectory.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">bolero.representation</span> <span class="k">import</span> <span class="n">DMPBehavior</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">bolero.representation</span> <span class="kn">import</span> <span class="n">DMPBehavior</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">beh</span> <span class="o">=</span> <span class="n">DMPBehavior</span><span class="p">(</span><span class="n">execution_time</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">beh</span>
 <span class="go">DMPBehavior(...dt=0.01, execution_time=1.0, n_features=10)</span>
@@ -182,8 +200,8 @@ end-effector trajectory.</p>
 <p>Next, we have to specify how we want to learn the behavior. We will use a
 black-box optimizer to optimize the parameters of the DMP. We have to combine
 the behavior and the optimizer to a behavior search component.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">bolero.behavior_search</span> <span class="k">import</span> <span class="n">BlackBoxSearch</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">bolero.optimizer</span> <span class="k">import</span> <span class="n">CMAESOptimizer</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">bolero.behavior_search</span> <span class="kn">import</span> <span class="n">BlackBoxSearch</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">bolero.optimizer</span> <span class="kn">import</span> <span class="n">CMAESOptimizer</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">bs</span> <span class="o">=</span> <span class="n">BlackBoxSearch</span><span class="p">(</span><span class="n">beh</span><span class="p">,</span> <span class="n">CMAESOptimizer</span><span class="p">(</span><span class="n">variance</span><span class="o">=</span><span class="mf">100.0</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">bs</span>
 <span class="go">BlackBoxSearch(behavior=DMPBehavior(...), ..., optimizer=CMAESOptimizer(...))</span>
@@ -192,7 +210,7 @@ the behavior and the optimizer to a behavior search component.</p>
 <p>Now, we have an environment that defines our problem and a behavior search
 component that is able to find a solution. We can use a controller to
 organize the behavior search.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">bolero.controller</span> <span class="k">import</span> <span class="n">Controller</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">bolero.controller</span> <span class="kn">import</span> <span class="n">Controller</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">controller</span> <span class="o">=</span> <span class="n">Controller</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">environment</span><span class="o">=</span><span class="n">env</span><span class="p">,</span> <span class="n">behavior_search</span><span class="o">=</span><span class="n">bs</span><span class="p">,</span> <span class="n">n_episodes</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">controller</span>
@@ -208,7 +226,7 @@ organize the behavior search.</p>
 <p>We can use components from BOLeRo without using all the other parts. We will
 demonstrate that in this example. We can construct a CMA-ES optimizer that
 optimizes two parameters as follows:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">bolero.optimizer</span> <span class="k">import</span> <span class="n">CMAESOptimizer</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">bolero.optimizer</span> <span class="kn">import</span> <span class="n">CMAESOptimizer</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">opt</span> <span class="o">=</span> <span class="n">CMAESOptimizer</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">opt</span>
 <span class="go">CMAESOptimizer(active=False, ..., initial_params=None, ..., variance=1.0)</span>
@@ -216,7 +234,7 @@ optimizes two parameters as follows:</p>
 </pre></div>
 </div>
 <p>and generate a new parameter vector with</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">opt</span><span class="o">.</span><span class="n">get_next_parameters</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">params</span>
@@ -225,7 +243,7 @@ optimizes two parameters as follows:</p>
 </div>
 <p>Now we can compute the feedback and give it back to the optimizer. Then we can
 check what are the best parameters so far.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">feedback</span> <span class="o">=</span> <span class="p">(</span><span class="n">params</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.3</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.7</span><span class="p">]))</span> <span class="o">**</span> <span class="mi">2</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">feedback</span> <span class="o">=</span> <span class="p">(</span><span class="n">params</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.3</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.7</span><span class="p">]))</span> <span class="o">**</span> <span class="mi">2</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">opt</span><span class="o">.</span><span class="n">set_evaluation_feedback</span><span class="p">(</span><span class="n">feedback</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">opt_params</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">get_best_parameters</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">opt_params</span>
@@ -253,7 +271,7 @@ use cases.</p>
     </p>
     <p>
         &copy; Copyright 2014-2018, DFKI GmbH / Robotics Innovation Center, University of Bremen / Robotics Group.<br/>
-      Last updated on Feb 11, 2018.<br/>
+      Last updated on Apr 23, 2018.<br/>
     </p>
   </div>
 </footer>

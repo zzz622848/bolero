@@ -2,23 +2,15 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>bolero.controller.Controller &#8212; bolero 1.0.0 documentation</title>
+    <title>bolero.controller.Controller &#8212; bolero 1.0.1-dev documentation</title>
     <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/bootswatch-3.1.0/flatly/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../',
-        VERSION:     '1.0.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
@@ -36,8 +28,7 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 
-  </head>
-  <body>
+  </head><body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -50,7 +41,7 @@
         </button>
         <a class="navbar-brand" href="../../index.html">
           bolero</a>
-        <span class="navbar-text navbar-version pull-left"><b>1.0.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>1.0.1-dev</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -110,7 +101,7 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#"><code class="docutils literal"><span class="pre">bolero.controller</span></code>.Controller</a></li>
+<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">bolero.controller</span></code>.Controller</a></li>
 </ul>
 </ul>
 </li>
@@ -140,10 +131,32 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">bolero.controller</span></code>.Controller</a></li>
+</ul>
+
+  <li>
+    <a href="../../api_py.html" title="Previous Chapter: Python API"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; Python API</span>
+    </a>
+  </li>
+  <li>
+    <a href="bolero.controller.ContextualController.html" title="Next Chapter: bolero.controller.ContextualController"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm">bolero.contro... &raquo;</span>
+    </a>
+  </li>
+<form action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="col-md-9">
       
   <div class="section" id="bolero-controller-controller">
-<h1><a class="reference internal" href="../../api_py.html#module-bolero.controller" title="bolero.controller"><code class="xref py py-mod docutils literal"><span class="pre">bolero.controller</span></code></a>.Controller<a class="headerlink" href="#bolero-controller-controller" title="Permalink to this headline">¶</a></h1>
+<h1><a class="reference internal" href="../../api_py.html#module-bolero.controller" title="bolero.controller"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bolero.controller</span></code></a>.Controller<a class="headerlink" href="#bolero-controller-controller" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="bolero.controller.Controller">
 <em class="property">class </em><code class="descclassname">bolero.controller.</code><code class="descname">Controller</code><span class="sig-paren">(</span><em>config=None</em>, <em>environment=None</em>, <em>behavior_search=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/bolero/controller/controller.html#Controller"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bolero.controller.Controller" title="Permalink to this definition">¶</a></dt>
@@ -156,7 +169,7 @@ possible.</p>
 the following parameters:</p>
 <ul class="simple">
 <li>n_episodes (int) - number of episodes that will be executed by
-<a class="reference internal" href="#bolero.controller.Controller.learn" title="bolero.controller.Controller.learn"><code class="xref py py-func docutils literal"><span class="pre">learn()</span></code></a></li>
+<a class="reference internal" href="#bolero.controller.Controller.learn" title="bolero.controller.Controller.learn"><code class="xref py py-func docutils literal notranslate"><span class="pre">learn()</span></code></a></li>
 <li>record_inputs (bool) - store control signal trajectories (outputs
 of behaviors) of each episode in <cite>self.inputs_</cite></li>
 <li>record_outputs (bool) - store outputs of environment (inputs for
@@ -176,25 +189,23 @@ maximum number of episodes might not be reached yet</li>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>config</strong> : dict</p>
-<blockquote>
-<div><p>Configuration dictionary for the controller. The environment and the
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>config</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
+<dd><p class="first last">Configuration dictionary for the controller. The environment and the
 behavior search can either be specified in this dictionary or can
 be passed as arguments. In addition, parameters that configurate the
 controller can be passed here in the ‘Controller’ subsection.</p>
-</div></blockquote>
-<p><strong>environment</strong> : Environment</p>
-<blockquote>
-<div><p>Environment in which we will execute behaviors and learn</p>
-</div></blockquote>
-<p><strong>behavior_search</strong> : BehaviorSearch, optional (default: None)</p>
-<blockquote>
-<div><p>Behavior search that evolves the behavior in the environment</p>
-</div></blockquote>
-<p><strong>kwargs</strong> : dict</p>
-<blockquote class="last">
-<div><p>Additional controller parameters</p>
-</div></blockquote>
+</dd>
+<dt><strong>environment</strong> <span class="classifier-delimiter">:</span> <span class="classifier">Environment</span></dt>
+<dd><p class="first last">Environment in which we will execute behaviors and learn</p>
+</dd>
+<dt><strong>behavior_search</strong> <span class="classifier-delimiter">:</span> <span class="classifier">BehaviorSearch, optional (default: None)</span></dt>
+<dd><p class="first last">Behavior search that evolves the behavior in the environment</p>
+</dd>
+<dt><strong>kwargs</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
+<dd><p class="first last">Additional controller parameters</p>
+</dd>
+</dl>
 </td>
 </tr>
 </tbody>
@@ -202,7 +213,8 @@ controller can be passed here in the ‘Controller’ subsection.</p>
 <dl class="method">
 <dt id="bolero.controller.Controller.__init__">
 <code class="descname">__init__</code><span class="sig-paren">(</span><em>config=None</em>, <em>environment=None</em>, <em>behavior_search=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/bolero/controller/controller.html#Controller.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bolero.controller.Controller.__init__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>x.__init__(…) initializes x; see help(type(x)) for signature</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="bolero.controller.Controller.episode">
@@ -212,20 +224,21 @@ controller can be passed here in the ‘Controller’ subsection.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>meta_parameter_keys</strong> : array-like, shape = (n_meta_parameters,)</p>
-<blockquote>
-<div><p>Meta parameter keys</p>
-</div></blockquote>
-<p><strong>meta_parameters</strong> : array-like, shape = (n_meta_parameters,)</p>
-<blockquote>
-<div><p>Meta parameter values</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>meta_parameter_keys</strong> <span class="classifier-delimiter">:</span> <span class="classifier">array-like, shape = (n_meta_parameters,)</span></dt>
+<dd><p class="first last">Meta parameter keys</p>
+</dd>
+<dt><strong>meta_parameters</strong> <span class="classifier-delimiter">:</span> <span class="classifier">array-like, shape = (n_meta_parameters,)</span></dt>
+<dd><p class="first last">Meta parameter values</p>
+</dd>
+</dl>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>accumulated_feedback</strong> : float or array-like, shape = (n_feedbacks,)</p>
-<blockquote class="last">
-<div><p>Feedback(s) of the episode</p>
-</div></blockquote>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>accumulated_feedback</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float or array-like, shape = (n_feedbacks,)</span></dt>
+<dd><p class="first last">Feedback(s) of the episode</p>
+</dd>
+</dl>
 </td>
 </tr>
 </tbody>
@@ -240,28 +253,27 @@ controller can be passed here in the ‘Controller’ subsection.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>behavior</strong> : Behavior</p>
-<blockquote>
-<div><p>Fix behavior</p>
-</div></blockquote>
-<p><strong>meta_parameter_keys</strong> : list, optional (default: [])</p>
-<blockquote>
-<div><p>Meta parameter keys</p>
-</div></blockquote>
-<p><strong>meta_parameters</strong> : list, optional (default: [])</p>
-<blockquote>
-<div><p>Meta parameter values</p>
-</div></blockquote>
-<p><strong>record</strong> : bool, optional (default: True)</p>
-<blockquote>
-<div><p>Record feedbacks or trajectories if activated</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>behavior</strong> <span class="classifier-delimiter">:</span> <span class="classifier">Behavior</span></dt>
+<dd><p class="first last">Fix behavior</p>
+</dd>
+<dt><strong>meta_parameter_keys</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list, optional (default: [])</span></dt>
+<dd><p class="first last">Meta parameter keys</p>
+</dd>
+<dt><strong>meta_parameters</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list, optional (default: [])</span></dt>
+<dd><p class="first last">Meta parameter values</p>
+</dd>
+<dt><strong>record</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, optional (default: True)</span></dt>
+<dd><p class="first last">Record feedbacks or trajectories if activated</p>
+</dd>
+</dl>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>feedbacks</strong> : array, shape (n_steps,)</p>
-<blockquote class="last">
-<div><p>Feedback for each step in the environment</p>
-</div></blockquote>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>feedbacks</strong> <span class="classifier-delimiter">:</span> <span class="classifier">array, shape (n_steps,)</span></dt>
+<dd><p class="first last">Feedback for each step in the environment</p>
+</dd>
+</dl>
 </td>
 </tr>
 </tbody>
@@ -276,10 +288,11 @@ controller can be passed here in the ‘Controller’ subsection.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>params</strong> : mapping of string to any</p>
-<blockquote class="last">
-<div><p>Parameter names mapped to their values.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>params</strong> <span class="classifier-delimiter">:</span> <span class="classifier">mapping of string to any</span></dt>
+<dd><p class="first last">Parameter names mapped to their values.</p>
+</dd>
+</dl>
 </td>
 </tr>
 </tbody>
@@ -294,22 +307,23 @@ controller can be passed here in the ‘Controller’ subsection.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>meta_parameter_keys</strong> : list</p>
-<blockquote>
-<div><p>Meta parameter keys</p>
-</div></blockquote>
-<p><strong>meta_parameters</strong> : list</p>
-<blockquote>
-<div><p>Meta parameter values</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>meta_parameter_keys</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list</span></dt>
+<dd><p class="first last">Meta parameter keys</p>
+</dd>
+<dt><strong>meta_parameters</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list</span></dt>
+<dd><p class="first last">Meta parameter values</p>
+</dd>
+</dl>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>feedback_history</strong> : array, shape (n_episodes or less, dim_feedback)</p>
-<blockquote class="last">
-<div><p>Feedbacks for each episode. If is_behavior_learning_done is True
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>feedback_history</strong> <span class="classifier-delimiter">:</span> <span class="classifier">array, shape (n_episodes or less, dim_feedback)</span></dt>
+<dd><p class="first last">Feedbacks for each episode. If is_behavior_learning_done is True
 before the n_episodes is reached, the length of feedback_history
 is shorter than n_episodes.</p>
-</div></blockquote>
+</dd>
+</dl>
 </td>
 </tr>
 </tbody>
@@ -339,7 +353,7 @@ is shorter than n_episodes.</p>
     </p>
     <p>
         &copy; Copyright 2014-2018, DFKI GmbH / Robotics Innovation Center, University of Bremen / Robotics Group.<br/>
-      Last updated on Feb 11, 2018.<br/>
+      Last updated on Apr 23, 2018.<br/>
     </p>
   </div>
 </footer>

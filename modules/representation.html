@@ -2,23 +2,15 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Representation &#8212; bolero 1.0.0 documentation</title>
+    <title>Representation &#8212; bolero 1.0.1-dev documentation</title>
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootswatch-3.1.0/flatly/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '1.0.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
@@ -36,8 +28,7 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 
-  </head>
-  <body>
+  </head><body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -50,7 +41,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           bolero</a>
-        <span class="navbar-text navbar-version pull-left"><b>1.0.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>1.0.1-dev</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -117,8 +108,8 @@
 <li><a class="reference internal" href="#linear-behavior">Linear Behavior</a></li>
 <li><a class="reference internal" href="#dummy-behavior">Dummy Behavior</a></li>
 <li><a class="reference internal" href="#dynamical-movement-primitive">Dynamical Movement Primitive</a><ul>
-<li><a class="reference internal" href="#examples-using-bolero-representation-dmpbehavior">Examples using <code class="docutils literal"><span class="pre">bolero.representation.DMPBehavior</span></code></a></li>
-<li><a class="reference internal" href="#examples-using-bolero-representation-cartesiandmpbehavior">Examples using <code class="docutils literal"><span class="pre">bolero.representation.CartesianDMPBehavior</span></code></a></li>
+<li><a class="reference internal" href="#examples-using-bolero-representation-dmpbehavior">Examples using <code class="docutils literal notranslate"><span class="pre">bolero.representation.DMPBehavior</span></code></a></li>
+<li><a class="reference internal" href="#examples-using-bolero-representation-cartesiandmpbehavior">Examples using <code class="docutils literal notranslate"><span class="pre">bolero.representation.CartesianDMPBehavior</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#sequence-of-dmps">Sequence of DMPs</a></li>
@@ -155,21 +146,58 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li><a class="reference internal" href="#">Representation</a><ul>
+<li><a class="reference internal" href="#behaviors">Behaviors</a><ul>
+<li><a class="reference internal" href="#constant-behavior">Constant Behavior</a></li>
+<li><a class="reference internal" href="#random-behavior">Random Behavior</a></li>
+<li><a class="reference internal" href="#linear-behavior">Linear Behavior</a></li>
+<li><a class="reference internal" href="#dummy-behavior">Dummy Behavior</a></li>
+<li><a class="reference internal" href="#dynamical-movement-primitive">Dynamical Movement Primitive</a><ul>
+<li><a class="reference internal" href="#examples-using-bolero-representation-dmpbehavior">Examples using <code class="docutils literal notranslate"><span class="pre">bolero.representation.DMPBehavior</span></code></a></li>
+<li><a class="reference internal" href="#examples-using-bolero-representation-cartesiandmpbehavior">Examples using <code class="docutils literal notranslate"><span class="pre">bolero.representation.CartesianDMPBehavior</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sequence-of-dmps">Sequence of DMPs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <li>
+    <a href="../behavior_learning.html" title="Previous Chapter: Behavior Learning"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; Behavior Learning</span>
+    </a>
+  </li>
+  <li>
+    <a href="optimizer.html" title="Next Chapter: Optimization"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm">Optimization &raquo;</span>
+    </a>
+  </li>
+<form action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="col-md-9">
       
   <div class="section" id="representation">
 <span id="id1"></span><h1>Representation<a class="headerlink" href="#representation" title="Permalink to this headline">¶</a></h1>
 <p>Everything that has to be stored not only temporarily in BOLeRo is located
-in <a class="reference internal" href="../api_py.html#module-bolero.representation" title="bolero.representation"><code class="xref py py-mod docutils literal"><span class="pre">bolero.representation</span></code></a>.</p>
+in <a class="reference internal" href="../api_py.html#module-bolero.representation" title="bolero.representation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bolero.representation</span></code></a>.</p>
 <div class="section" id="behaviors">
 <h2>Behaviors<a class="headerlink" href="#behaviors" title="Permalink to this headline">¶</a></h2>
 <p>The purpose of this library is learning behaviors. Behaviors typically
-implement the interface <a class="reference internal" href="generated/bolero.representation.Behavior.html#bolero.representation.Behavior" title="bolero.representation.Behavior"><code class="xref py py-class docutils literal"><span class="pre">Behavior</span></code></a>. It is
+implement the interface <a class="reference internal" href="generated/bolero.representation.Behavior.html#bolero.representation.Behavior" title="bolero.representation.Behavior"><code class="xref py py-class docutils literal notranslate"><span class="pre">Behavior</span></code></a>. It is
 important to know that there are some conventions regarding the inputs and
 outputs of the generic behavior interface:</p>
 <ul class="simple">
 <li>Often get_output and set_input deal with the same kind of data, e.g. a
-<code class="xref py py-class docutils literal"><span class="pre">DMPBehavior</span></code> generates a set of positions,
+<a class="reference internal" href="generated/bolero.representation.DMPBehavior.html#bolero.representation.DMPBehavior" title="bolero.representation.DMPBehavior"><code class="xref py py-class docutils literal notranslate"><span class="pre">DMPBehavior</span></code></a> generates a set of positions,
 velocities and accelerations in Cartesian space or in joint angle space and
 then they expect to get back the same information from a sensor that
 measures the actual positions, velocities and accelerations. However, that
@@ -179,7 +207,7 @@ positions, velocities and accelerations, it is not per se clear which layout
 would be to best to put these information in a flat vector. We agreed that
 all positions (p), all velocities (v) and all accelerations (a) should be
 stored contiguously, e.g. when the behavior controls 3 joints, the output
-would have the layout <code class="code docutils literal"><span class="pre">pppvvvaaa</span></code>. The reason is that it is easy to
+would have the layout <code class="code docutils literal notranslate"><span class="pre">pppvvvaaa</span></code>. The reason is that it is easy to
 extract e.g. the position vector with a slice from the output vector.</li>
 </ul>
 <p>The following table gives an overview of the behaviors that are provided by
@@ -241,36 +269,36 @@ BOLeRo.</p>
 </table>
 <div class="section" id="constant-behavior">
 <span id="constant-beh"></span><h3>Constant Behavior<a class="headerlink" href="#constant-behavior" title="Permalink to this headline">¶</a></h3>
-<p>A <a class="reference internal" href="generated/bolero.representation.ConstantBehavior.html#bolero.representation.ConstantBehavior" title="bolero.representation.ConstantBehavior"><code class="xref py py-class docutils literal"><span class="pre">ConstantBehavior</span></code></a> always produces a constant output that cannot
+<p>A <a class="reference internal" href="generated/bolero.representation.ConstantBehavior.html#bolero.representation.ConstantBehavior" title="bolero.representation.ConstantBehavior"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConstantBehavior</span></code></a> always produces a constant output that cannot
 be changed. It can be used as a behavior baseline.</p>
 </div>
 <div class="section" id="random-behavior">
 <span id="random-beh"></span><h3>Random Behavior<a class="headerlink" href="#random-behavior" title="Permalink to this headline">¶</a></h3>
-<p>A <a class="reference internal" href="generated/bolero.representation.RandomBehavior.html#bolero.representation.RandomBehavior" title="bolero.representation.RandomBehavior"><code class="xref py py-class docutils literal"><span class="pre">RandomBehavior</span></code></a> always produces a random output that is completely
+<p>A <a class="reference internal" href="generated/bolero.representation.RandomBehavior.html#bolero.representation.RandomBehavior" title="bolero.representation.RandomBehavior"><code class="xref py py-class docutils literal notranslate"><span class="pre">RandomBehavior</span></code></a> always produces a random output that is completely
 random and normal distributed. It can be used as a behavior baseline.</p>
 </div>
 <div class="section" id="linear-behavior">
 <span id="linear-beh"></span><h3>Linear Behavior<a class="headerlink" href="#linear-behavior" title="Permalink to this headline">¶</a></h3>
-<p>A <a class="reference internal" href="generated/bolero.representation.LinearBehavior.html#bolero.representation.LinearBehavior" title="bolero.representation.LinearBehavior"><code class="xref py py-class docutils literal"><span class="pre">LinearBehavior</span></code></a> generates a linear mapping <span class="math">\(y = W x\)</span> from
-an input vector <span class="math">\(x\)</span> (with an additional bias component that is always 1)
-to an output vector <span class="math">\(y\)</span>.</p>
+<p>A <a class="reference internal" href="generated/bolero.representation.LinearBehavior.html#bolero.representation.LinearBehavior" title="bolero.representation.LinearBehavior"><code class="xref py py-class docutils literal notranslate"><span class="pre">LinearBehavior</span></code></a> generates a linear mapping <span class="math notranslate nohighlight">\(y = W x\)</span> from
+an input vector <span class="math notranslate nohighlight">\(x\)</span> (with an additional bias component that is always 1)
+to an output vector <span class="math notranslate nohighlight">\(y\)</span>.</p>
 </div>
 <div class="section" id="dummy-behavior">
 <span id="dummy-beh"></span><h3>Dummy Behavior<a class="headerlink" href="#dummy-behavior" title="Permalink to this headline">¶</a></h3>
-<p>A <a class="reference internal" href="generated/bolero.representation.DummyBehavior.html#bolero.representation.DummyBehavior" title="bolero.representation.DummyBehavior"><code class="xref py py-class docutils literal"><span class="pre">DummyBehavior</span></code></a> always produces the output that has been given as
+<p>A <a class="reference internal" href="generated/bolero.representation.DummyBehavior.html#bolero.representation.DummyBehavior" title="bolero.representation.DummyBehavior"><code class="xref py py-class docutils literal notranslate"><span class="pre">DummyBehavior</span></code></a> always produces the output that has been given as
 parameters from the optimizer. It can be used in cases where no behavior is
 required actually, e.g. for plain function optimization or where the behavior
 is encoded in the environment.</p>
 </div>
 <div class="section" id="dynamical-movement-primitive">
 <span id="dmp-beh"></span><h3>Dynamical Movement Primitive<a class="headerlink" href="#dynamical-movement-primitive" title="Permalink to this headline">¶</a></h3>
-<p>Dynamical movement primitives represent trajectories <code class="xref py py-class docutils literal"><span class="pre">DMPBehavior</span></code>, e.g.
+<p>Dynamical movement primitives represent trajectories <a class="reference internal" href="generated/bolero.representation.DMPBehavior.html#bolero.representation.DMPBehavior" title="bolero.representation.DMPBehavior"><code class="xref py py-class docutils literal notranslate"><span class="pre">DMPBehavior</span></code></a>, e.g.
 in joint space. They can generalize over several meta-parameters (goal,
 velocity at the goal, execution time) and can be learned from demonstrations.
 A variant of DMPs that works in Cartesian space is
-<code class="xref py py-class docutils literal"><span class="pre">CartesianDMPBehavior</span></code>.</p>
+<a class="reference internal" href="generated/bolero.representation.CartesianDMPBehavior.html#bolero.representation.CartesianDMPBehavior" title="bolero.representation.CartesianDMPBehavior"><code class="xref py py-class docutils literal notranslate"><span class="pre">CartesianDMPBehavior</span></code></a>.</p>
 <div class="section" id="examples-using-bolero-representation-dmpbehavior">
-<h4>Examples using <code class="docutils literal"><span class="pre">bolero.representation.DMPBehavior</span></code><a class="headerlink" href="#examples-using-bolero-representation-dmpbehavior" title="Permalink to this headline">¶</a></h4>
+<h4>Examples using <code class="docutils literal notranslate"><span class="pre">bolero.representation.DMPBehavior</span></code><a class="headerlink" href="#examples-using-bolero-representation-dmpbehavior" title="Permalink to this headline">¶</a></h4>
 <div class="sphx-glr-thumbcontainer" tooltip="We use CMA-ES to optimize a DMP so that it avoids point obstacles. "><div class="figure" id="id2">
 <img alt="../_images/sphx_glr_plot_obstacle_avoidance_thumb.png" src="../_images/sphx_glr_plot_obstacle_avoidance_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="../auto_examples/behavior_search/plot_obstacle_avoidance.html#sphx-glr-auto-examples-behavior-search-plot-obstacle-avoidance-py"><span class="std std-ref">Obstacle Avoidance</span></a></span></p>
@@ -281,7 +309,7 @@ A variant of DMPs that works in Cartesian space is
 </div>
 </div><div style='clear:both'></div></div>
 <div class="section" id="examples-using-bolero-representation-cartesiandmpbehavior">
-<h4>Examples using <code class="docutils literal"><span class="pre">bolero.representation.CartesianDMPBehavior</span></code><a class="headerlink" href="#examples-using-bolero-representation-cartesiandmpbehavior" title="Permalink to this headline">¶</a></h4>
+<h4>Examples using <code class="docutils literal notranslate"><span class="pre">bolero.representation.CartesianDMPBehavior</span></code><a class="headerlink" href="#examples-using-bolero-representation-cartesiandmpbehavior" title="Permalink to this headline">¶</a></h4>
 <div class="sphx-glr-thumbcontainer" tooltip="In a Cartesian Space DMP, the rotation are represented by quaternions. A normal DMP cannot be u..."><div class="figure" id="id4">
 <img alt="../_images/sphx_glr_plot_cartesian_dmp_thumb.png" src="../_images/sphx_glr_plot_cartesian_dmp_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="../auto_examples/representation/plot_cartesian_dmp.html#sphx-glr-auto-examples-representation-plot-cartesian-dmp-py"><span class="std std-ref">Cartesian Space DMP</span></a></span></p>
@@ -290,7 +318,7 @@ A variant of DMPs that works in Cartesian space is
 </div>
 <div class="section" id="sequence-of-dmps">
 <span id="dmp-seq"></span><h3>Sequence of DMPs<a class="headerlink" href="#sequence-of-dmps" title="Permalink to this headline">¶</a></h3>
-<p>We can learn a sequence of DMPs. In the class <code class="xref py py-class docutils literal"><span class="pre">DMPSequence</span></code> allows us to
+<p>We can learn a sequence of DMPs. In the class <a class="reference internal" href="generated/bolero.representation.DMPSequence.html#bolero.representation.DMPSequence" title="bolero.representation.DMPSequence"><code class="xref py py-class docutils literal notranslate"><span class="pre">DMPSequence</span></code></a> allows us to
 optimize the DMP weights and the subgoals of the DMPs.</p>
 </div>
 </div>
@@ -309,7 +337,7 @@ optimize the DMP weights and the subgoals of the DMPs.</p>
     </p>
     <p>
         &copy; Copyright 2014-2018, DFKI GmbH / Robotics Innovation Center, University of Bremen / Robotics Group.<br/>
-      Last updated on Feb 11, 2018.<br/>
+      Last updated on Apr 23, 2018.<br/>
     </p>
   </div>
 </footer>

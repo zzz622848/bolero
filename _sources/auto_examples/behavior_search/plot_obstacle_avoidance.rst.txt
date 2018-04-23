@@ -74,7 +74,7 @@ We use CMA-ES to optimize a DMP so that it avoids point obstacles.
     plt.legend(loc="best")
     plt.show()
 
-**Total running time of the script:** ( 0 minutes  7.045 seconds)
+**Total running time of the script:** ( 0 minutes  4.740 seconds)
 
 
 
